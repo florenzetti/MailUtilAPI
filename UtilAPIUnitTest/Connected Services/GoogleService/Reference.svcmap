@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9d975ab3-9710-4f7c-9685-3f5cdfc5ebd0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49490/GoogleService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GoogleService.xsd" MetadataType="Schema" ID="c881129e-f0f1-460f-8e4b-e96c9495b442" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GoogleService1.xsd" MetadataType="Schema" ID="71dcdc2f-4b2d-4b91-a651-ca961e52cd6e" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd3" />
+    <MetadataFile FileName="GoogleService2.xsd" MetadataType="Schema" ID="58a5d9e5-1d84-4d44-a67c-5c784692ab8c" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd7" />
+    <MetadataFile FileName="GoogleService.wsdl" MetadataType="Wsdl" ID="2222a7f8-e830-4e9a-bf7a-8fa5cd33440f" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?wsdl" />
+    <MetadataFile FileName="GoogleService3.xsd" MetadataType="Schema" ID="bb647d01-7050-4825-9d22-4c8a8d81affc" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd8" />
+    <MetadataFile FileName="GoogleService4.xsd" MetadataType="Schema" ID="3c0934f9-7d25-4b0a-a077-a6952ebbdeba" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd4" />
+    <MetadataFile FileName="GoogleService5.xsd" MetadataType="Schema" ID="abb54e71-bbdd-465c-a0c5-f390f4d6cec0" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd5" />
+    <MetadataFile FileName="GoogleService6.xsd" MetadataType="Schema" ID="a291f49f-b7e3-476a-a398-d32e75e4564e" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd6" />
+    <MetadataFile FileName="GoogleService.disco" MetadataType="Disco" ID="d4d2436b-8fb1-449b-8391-3f8cb16af271" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?disco" />
+    <MetadataFile FileName="GoogleService7.xsd" MetadataType="Schema" ID="b021da46-fd15-4338-8428-894da8849c58" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GoogleService8.xsd" MetadataType="Schema" ID="61b4ef02-146c-41e7-b2a1-75ec10109fef" SourceId="1" SourceUrl="http://localhost:49490/GoogleService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

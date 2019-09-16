@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49490/DocuSignService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UtilAPIService" />
+  <xs:import schemaLocation="http://localhost:49490/DocuSignService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UtilAPIService.DSAPIService" />
+  <xs:element name="CreateAndSendEnvelope">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="credential" nillable="true" type="q1:DocuSignCredential" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UtilAPIService.DSAPIService" minOccurs="0" name="envelope" nillable="true" type="q2:Envelope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAndSendEnvelopeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UtilAPIService.DSAPIService" minOccurs="0" name="CreateAndSendEnvelopeResult" nillable="true" type="q3:EnvelopeStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestPDF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="credential" nillable="true" type="q4:DocuSignCredential" />
+        <xs:element minOccurs="0" name="envelopeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestPDFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UtilAPIService.DSAPIService" minOccurs="0" name="RequestPDFResult" nillable="true" type="q5:EnvelopePDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestDocumentPDFs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="credential" nillable="true" type="q6:DocuSignCredential" />
+        <xs:element minOccurs="0" name="envelopeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestDocumentPDFsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UtilAPIService.DSAPIService" minOccurs="0" name="RequestDocumentPDFsResult" nillable="true" type="q7:DocumentPDFs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

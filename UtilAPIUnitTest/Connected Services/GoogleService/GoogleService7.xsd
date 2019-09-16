@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UtilAPIService" />
+  <xs:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+  <xs:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" />
+  <xs:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" />
+  <xs:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1" />
+  <xs:element name="GetGoogleScope">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGoogleScopeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="GetGoogleScopeResult" nillable="true" type="q1:GoogleScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q2:Initializer" />
+        <xs:element minOccurs="0" name="fileId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="DownloadFileResult" nillable="true" type="q3:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q4:Initializer" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" minOccurs="0" name="file" nillable="true" type="q5:File" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="stream" nillable="true" type="q6:MemoryStream" />
+        <xs:element minOccurs="0" name="fileExtension" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" minOccurs="0" name="UploadFileResult" nillable="true" type="q7:File" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFilePath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q8:Initializer" />
+        <xs:element minOccurs="0" name="filePath" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="stream" nillable="true" type="q9:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFilePathResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" minOccurs="0" name="UploadFilePathResult" nillable="true" type="q10:File" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q11:Initializer" />
+        <xs:element minOccurs="0" name="fileId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" minOccurs="0" name="DeleteFileResult" nillable="true" type="q12:File" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFilePath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q13:Initializer" />
+        <xs:element minOccurs="0" name="fileId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFilePathResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFilePathResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q14:Initializer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" minOccurs="0" name="GetFileListResult" nillable="true" type="q15:FileList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetFileOwner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q16:Initializer" />
+        <xs:element minOccurs="0" name="fileId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="setParent" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetFileOwnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" minOccurs="0" name="SetFileOwnerResult" nillable="true" type="q17:Permission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThread">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q18:Initializer" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="threadId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThreadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" minOccurs="0" name="GetThreadResult" nillable="true" type="q19:Thread" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThreadList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q20:Initializer" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThreadListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" minOccurs="0" name="GetThreadListResult" nillable="true" type="q21:ListThreadsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q22:Initializer" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1" minOccurs="0" name="format" type="q23:UsersResource.MessagesResource.GetRequest.FormatEnum" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" minOccurs="0" name="GetMessageResult" nillable="true" type="q24:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageAttachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q25:Initializer" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="attachmentId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageAttachmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" minOccurs="0" name="GetMessageAttachmentResult" nillable="true" type="q26:MessagePartBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q27:Initializer" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="eMessage" nillable="true" type="q28:EmailMessage" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" minOccurs="0" name="SendMessageResult" nillable="true" type="q29:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForwardMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="initializer" nillable="true" type="q30:Initializer" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/UtilAPIService" minOccurs="0" name="eMessage" nillable="true" type="q31:EmailMessage" />
+        <xs:element minOccurs="0" name="messageId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForwardMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" minOccurs="0" name="ForwardMessageResult" nillable="true" type="q32:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

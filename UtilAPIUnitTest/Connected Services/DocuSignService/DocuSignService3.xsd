@@ -1,0 +1,1165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UtilAPIService.DSAPIService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UtilAPIService.DSAPIService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49490/DocuSignService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:import schemaLocation="http://localhost:49490/DocuSignService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="Envelope">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q1:PropertyChangedEventHandler" />
+      <xs:element name="accessibilityField" nillable="true" type="xs:string" />
+      <xs:element name="accountIdField" nillable="true" type="xs:string" />
+      <xs:element name="allowMarkupField" type="xs:boolean" />
+      <xs:element name="allowMarkupFieldSpecified" type="xs:boolean" />
+      <xs:element name="allowReassignField" type="xs:boolean" />
+      <xs:element name="allowReassignFieldSpecified" type="xs:boolean" />
+      <xs:element name="asynchronousField" type="xs:boolean" />
+      <xs:element name="asynchronousFieldSpecified" type="xs:boolean" />
+      <xs:element name="authoritativeCopyField" type="xs:boolean" />
+      <xs:element name="authoritativeCopyFieldSpecified" type="xs:boolean" />
+      <xs:element name="autoNavigationField" type="xs:boolean" />
+      <xs:element name="autoNavigationFieldSpecified" type="xs:boolean" />
+      <xs:element name="brandIdField" nillable="true" type="xs:string" />
+      <xs:element name="brandLockField" type="xs:boolean" />
+      <xs:element name="brandLockFieldSpecified" type="xs:boolean" />
+      <xs:element name="customFieldsField" nillable="true" type="tns:ArrayOfCustomField" />
+      <xs:element name="documentsField" nillable="true" type="tns:ArrayOfDocument" />
+      <xs:element name="emailBlurbField" nillable="true" type="xs:string" />
+      <xs:element name="emailSettingsField" nillable="true" type="tns:EmailSettings" />
+      <xs:element name="enableWetSignField" type="xs:boolean" />
+      <xs:element name="enableWetSignFieldSpecified" type="xs:boolean" />
+      <xs:element name="enforceSignerVisibilityField" type="xs:boolean" />
+      <xs:element name="enforceSignerVisibilityFieldSpecified" type="xs:boolean" />
+      <xs:element name="envelopeAttachmentField" nillable="true" type="tns:ArrayOfAttachment" />
+      <xs:element name="envelopeIdStampingField" type="xs:boolean" />
+      <xs:element name="envelopeIdStampingFieldSpecified" type="xs:boolean" />
+      <xs:element name="eventNotificationField" nillable="true" type="tns:EventNotification" />
+      <xs:element name="messageLockField" type="xs:boolean" />
+      <xs:element name="messageLockFieldSpecified" type="xs:boolean" />
+      <xs:element name="notificationField" nillable="true" type="tns:Notification" />
+      <xs:element name="recipientsField" nillable="true" type="tns:ArrayOfRecipient" />
+      <xs:element name="recipientsLockField" type="xs:boolean" />
+      <xs:element name="recipientsLockFieldSpecified" type="xs:boolean" />
+      <xs:element name="signingLocationField" type="tns:SigningLocationCode" />
+      <xs:element name="signingLocationFieldSpecified" type="xs:boolean" />
+      <xs:element name="subjectField" nillable="true" type="xs:string" />
+      <xs:element name="tabsField" nillable="true" type="tns:ArrayOfTab" />
+      <xs:element name="transactionIDField" nillable="true" type="xs:string" />
+      <xs:element name="useDisclosureField" type="xs:boolean" />
+      <xs:element name="useDisclosureFieldSpecified" type="xs:boolean" />
+      <xs:element name="vaultingOptionsField" nillable="true" type="tns:VaultingOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Envelope" nillable="true" type="tns:Envelope" />
+  <xs:complexType name="ArrayOfCustomField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomField" nillable="true" type="tns:CustomField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomField" nillable="true" type="tns:ArrayOfCustomField" />
+  <xs:complexType name="CustomField">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q2:PropertyChangedEventHandler" />
+      <xs:element name="customFieldTypeField" type="tns:CustomFieldType" />
+      <xs:element name="customFieldTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="listItemsField" nillable="true" type="xs:string" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="requiredField" nillable="true" type="xs:string" />
+      <xs:element name="showField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomField" nillable="true" type="tns:CustomField" />
+  <xs:simpleType name="CustomFieldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="List" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CustomFieldType" nillable="true" type="tns:CustomFieldType" />
+  <xs:complexType name="ArrayOfDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocument" nillable="true" type="tns:ArrayOfDocument" />
+  <xs:complexType name="Document">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q3:PropertyChangedEventHandler" />
+      <xs:element name="attachmentDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="documentFieldsField" nillable="true" type="tns:ArrayOfDocumentField" />
+      <xs:element name="fileExtensionField" nillable="true" type="xs:string" />
+      <xs:element name="idField" nillable="true" type="xs:string" />
+      <xs:element name="matchBoxesField" nillable="true" type="tns:ArrayOfMatchBox" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="pDFBytesField" nillable="true" type="xs:base64Binary" />
+      <xs:element name="passwordField" nillable="true" type="xs:string" />
+      <xs:element name="transformPdfFieldsField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Document" nillable="true" type="tns:Document" />
+  <xs:complexType name="ArrayOfDocumentField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentField" nillable="true" type="tns:DocumentField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentField" nillable="true" type="tns:ArrayOfDocumentField" />
+  <xs:complexType name="DocumentField">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q4:PropertyChangedEventHandler" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentField" nillable="true" type="tns:DocumentField" />
+  <xs:complexType name="ArrayOfMatchBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MatchBox" nillable="true" type="tns:MatchBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMatchBox" nillable="true" type="tns:ArrayOfMatchBox" />
+  <xs:complexType name="MatchBox">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q5:PropertyChangedEventHandler" />
+      <xs:element name="heightField" type="xs:int" />
+      <xs:element name="pageNumberField" nillable="true" type="xs:string" />
+      <xs:element name="widthField" type="xs:int" />
+      <xs:element name="xPositionField" type="xs:int" />
+      <xs:element name="yPositionField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MatchBox" nillable="true" type="tns:MatchBox" />
+  <xs:complexType name="EmailSettings">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q6:PropertyChangedEventHandler" />
+      <xs:element name="bCCEmailAddressesField" nillable="true" type="tns:ArrayOfBCCEmailAddress" />
+      <xs:element name="replyEmailAddressOverrideField" nillable="true" type="xs:string" />
+      <xs:element name="replyEmailNameOverrideField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailSettings" nillable="true" type="tns:EmailSettings" />
+  <xs:complexType name="ArrayOfBCCEmailAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BCCEmailAddress" nillable="true" type="tns:BCCEmailAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBCCEmailAddress" nillable="true" type="tns:ArrayOfBCCEmailAddress" />
+  <xs:complexType name="BCCEmailAddress">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q7:PropertyChangedEventHandler" />
+      <xs:element name="bCCEmailAddressIdField" type="xs:int" />
+      <xs:element name="bCCEmailAddressIdFieldSpecified" type="xs:boolean" />
+      <xs:element name="emailField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BCCEmailAddress" nillable="true" type="tns:BCCEmailAddress" />
+  <xs:complexType name="ArrayOfAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attachment" nillable="true" type="tns:Attachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttachment" nillable="true" type="tns:ArrayOfAttachment" />
+  <xs:complexType name="Attachment">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q8:PropertyChangedEventHandler" />
+      <xs:element name="dataField" nillable="true" type="xs:base64Binary" />
+      <xs:element name="labelField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Attachment" nillable="true" type="tns:Attachment" />
+  <xs:complexType name="EventNotification">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q9:PropertyChangedEventHandler" />
+      <xs:element name="envelopeEventsField" nillable="true" type="tns:ArrayOfEnvelopeEvent" />
+      <xs:element name="includeCertificateOfCompletionField" type="xs:boolean" />
+      <xs:element name="includeCertificateOfCompletionFieldSpecified" type="xs:boolean" />
+      <xs:element name="includeCertificateWithSoapField" type="xs:boolean" />
+      <xs:element name="includeCertificateWithSoapFieldSpecified" type="xs:boolean" />
+      <xs:element name="includeDocumentFieldsField" type="xs:boolean" />
+      <xs:element name="includeDocumentFieldsFieldSpecified" type="xs:boolean" />
+      <xs:element name="includeDocumentsField" type="xs:boolean" />
+      <xs:element name="includeDocumentsFieldSpecified" type="xs:boolean" />
+      <xs:element name="includeEnvelopeVoidReasonField" type="xs:boolean" />
+      <xs:element name="includeEnvelopeVoidReasonFieldSpecified" type="xs:boolean" />
+      <xs:element name="includeSenderAccountAsCustomFieldField" type="xs:boolean" />
+      <xs:element name="includeSenderAccountAsCustomFieldFieldSpecified" type="xs:boolean" />
+      <xs:element name="includeTimeZoneField" type="xs:boolean" />
+      <xs:element name="includeTimeZoneFieldSpecified" type="xs:boolean" />
+      <xs:element name="loggingEnabledField" type="xs:boolean" />
+      <xs:element name="loggingEnabledFieldSpecified" type="xs:boolean" />
+      <xs:element name="recipientEventsField" nillable="true" type="tns:ArrayOfRecipientEvent" />
+      <xs:element name="requireAcknowledgmentField" type="xs:boolean" />
+      <xs:element name="requireAcknowledgmentFieldSpecified" type="xs:boolean" />
+      <xs:element name="signMessageWithX509CertField" type="xs:boolean" />
+      <xs:element name="signMessageWithX509CertFieldSpecified" type="xs:boolean" />
+      <xs:element name="soapNameSpaceField" nillable="true" type="xs:string" />
+      <xs:element name="uRLField" nillable="true" type="xs:string" />
+      <xs:element name="useSoapInterfaceField" type="xs:boolean" />
+      <xs:element name="useSoapInterfaceFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventNotification" nillable="true" type="tns:EventNotification" />
+  <xs:complexType name="ArrayOfEnvelopeEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnvelopeEvent" nillable="true" type="tns:EnvelopeEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnvelopeEvent" nillable="true" type="tns:ArrayOfEnvelopeEvent" />
+  <xs:complexType name="EnvelopeEvent">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q10:PropertyChangedEventHandler" />
+      <xs:element name="envelopeEventStatusCodeField" type="tns:EnvelopeEventStatusCode" />
+      <xs:element name="includeDocumentsField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnvelopeEvent" nillable="true" type="tns:EnvelopeEvent" />
+  <xs:simpleType name="EnvelopeEventStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="Voided" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EnvelopeEventStatusCode" nillable="true" type="tns:EnvelopeEventStatusCode" />
+  <xs:complexType name="ArrayOfRecipientEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecipientEvent" nillable="true" type="tns:RecipientEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecipientEvent" nillable="true" type="tns:ArrayOfRecipientEvent" />
+  <xs:complexType name="RecipientEvent">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q11:PropertyChangedEventHandler" />
+      <xs:element name="includeDocumentsField" type="xs:boolean" />
+      <xs:element name="recipientEventStatusCodeField" type="tns:RecipientEventStatusCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientEvent" nillable="true" type="tns:RecipientEvent" />
+  <xs:simpleType name="RecipientEventStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="AutoResponded" />
+      <xs:enumeration value="AuthenticationFailed" />
+      <xs:enumeration value="FinishLater" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RecipientEventStatusCode" nillable="true" type="tns:RecipientEventStatusCode" />
+  <xs:complexType name="Notification">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q12:PropertyChangedEventHandler" />
+      <xs:element name="expirationsField" nillable="true" type="tns:Expirations" />
+      <xs:element name="remindersField" nillable="true" type="tns:Reminders" />
+      <xs:element name="useAccountDefaultsField" type="xs:boolean" />
+      <xs:element name="useAccountDefaultsFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Notification" nillable="true" type="tns:Notification" />
+  <xs:complexType name="Expirations">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q13:PropertyChangedEventHandler" />
+      <xs:element name="expireAfterField" nillable="true" type="xs:string" />
+      <xs:element name="expireEnabledField" type="xs:boolean" />
+      <xs:element name="expireWarnField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Expirations" nillable="true" type="tns:Expirations" />
+  <xs:complexType name="Reminders">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q14:PropertyChangedEventHandler" />
+      <xs:element name="reminderDelayField" nillable="true" type="xs:string" />
+      <xs:element name="reminderEnabledField" type="xs:boolean" />
+      <xs:element name="reminderFrequencyField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reminders" nillable="true" type="tns:Reminders" />
+  <xs:complexType name="ArrayOfRecipient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Recipient" nillable="true" type="tns:Recipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecipient" nillable="true" type="tns:ArrayOfRecipient" />
+  <xs:complexType name="Recipient">
+    <xs:sequence>
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q15:PropertyChangedEventHandler" />
+      <xs:element name="accessCodeField" nillable="true" type="xs:string" />
+      <xs:element name="addAccessCodeToEmailField" type="xs:boolean" />
+      <xs:element name="addAccessCodeToEmailFieldSpecified" type="xs:boolean" />
+      <xs:element name="agentCanEditEmailField" type="xs:boolean" />
+      <xs:element name="agentCanEditEmailFieldSpecified" type="xs:boolean" />
+      <xs:element name="agentCanEditNameField" type="xs:boolean" />
+      <xs:element name="agentCanEditNameFieldSpecified" type="xs:boolean" />
+      <xs:element name="anySocialIDRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="anySocialIDRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="autoNavigationField" type="xs:boolean" />
+      <xs:element name="autoNavigationFieldSpecified" type="xs:boolean" />
+      <xs:element name="captiveInfoField" nillable="true" type="tns:RecipientCaptiveInfo" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="customFieldsField" nillable="true" type="q16:ArrayOfstring" />
+      <xs:element name="defaultRecipientField" type="xs:boolean" />
+      <xs:element name="defaultRecipientFieldSpecified" type="xs:boolean" />
+      <xs:element name="deliveryMethodField" type="tns:DeliveryMethod" />
+      <xs:element name="deliveryMethodFieldSpecified" type="xs:boolean" />
+      <xs:element name="emailField" nillable="true" type="xs:string" />
+      <xs:element name="emailNotificationField" nillable="true" type="tns:RecipientEmailNotification" />
+      <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="excludedDocumentsField" nillable="true" type="q17:ArrayOfstring" />
+      <xs:element name="facebookRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="facebookRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="faxNumberField" nillable="true" type="xs:string" />
+      <xs:element name="googleRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="googleRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="hostedSignerField" nillable="true" type="xs:string" />
+      <xs:element name="iDCheckConfigurationNameField" nillable="true" type="xs:string" />
+      <xs:element name="iDCheckInformationInputField" nillable="true" type="tns:IDCheckInformationInput" />
+      <xs:element name="idField" nillable="true" type="xs:string" />
+      <xs:element name="inheritEmailNotificationConfigurationField" type="xs:boolean" />
+      <xs:element name="inheritEmailNotificationConfigurationFieldSpecified" type="xs:boolean" />
+      <xs:element name="isNotaryTransactionField" type="xs:boolean" />
+      <xs:element name="isNotaryTransactionFieldSpecified" type="xs:boolean" />
+      <xs:element name="linkedinRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="linkedinRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="liveIDRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="liveIDRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="noteField" nillable="true" type="xs:string" />
+      <xs:element name="openIDRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="openIDRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="phoneAuthenticationField" nillable="true" type="tns:RecipientPhoneAuthentication" />
+      <xs:element name="recipientAttachmentField" nillable="true" type="tns:ArrayOfAttachment" />
+      <xs:element name="requireIDLookupField" type="xs:boolean" />
+      <xs:element name="requireIDLookupFieldSpecified" type="xs:boolean" />
+      <xs:element name="requireNotaryField" nillable="true" type="xs:string" />
+      <xs:element name="requireSignerCertificateField" nillable="true" type="xs:string" />
+      <xs:element name="roleNameField" nillable="true" type="xs:string" />
+      <xs:element name="routingOrderField" type="xs:unsignedShort" />
+      <xs:element name="routingOrderFieldSpecified" type="xs:boolean" />
+      <xs:element name="sAMLAuthenticationField" nillable="true" type="tns:RecipientSAMLAuthentication" />
+      <xs:element name="sMSAuthenticationField" nillable="true" type="tns:RecipientSMSAuthentication" />
+      <xs:element name="salesforceRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="salesforceRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="signInEachLocationField" type="xs:boolean" />
+      <xs:element name="signInEachLocationFieldSpecified" type="xs:boolean" />
+      <xs:element name="signatureInfoField" nillable="true" type="tns:RecipientSignatureInfo" />
+      <xs:element name="signerNameField" nillable="true" type="xs:string" />
+      <xs:element name="signingGroupIdField" type="xs:long" />
+      <xs:element name="signingGroupIdFieldSpecified" type="xs:boolean" />
+      <xs:element name="templateAccessCodeRequiredField" type="xs:boolean" />
+      <xs:element name="templateAccessCodeRequiredFieldSpecified" type="xs:boolean" />
+      <xs:element name="templateLockedField" type="xs:boolean" />
+      <xs:element name="templateLockedFieldSpecified" type="xs:boolean" />
+      <xs:element name="templateRequiredField" type="xs:boolean" />
+      <xs:element name="templateRequiredFieldSpecified" type="xs:boolean" />
+      <xs:element name="twitterRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="twitterRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+      <xs:element name="typeField" type="tns:RecipientTypeCode" />
+      <xs:element name="userNameField" nillable="true" type="xs:string" />
+      <xs:element name="yahooRecipientAuthenticationField" type="xs:boolean" />
+      <xs:element name="yahooRecipientAuthenticationFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Recipient" nillable="true" type="tns:Recipient" />
+  <xs:complexType name="RecipientCaptiveInfo">
+    <xs:sequence>
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q18:PropertyChangedEventHandler" />
+      <xs:element name="clientUserIdField" nillable="true" type="xs:string" />
+      <xs:element name="embeddedRecipientStartURLField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientCaptiveInfo" nillable="true" type="tns:RecipientCaptiveInfo" />
+  <xs:simpleType name="DeliveryMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Fax" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DeliveryMethod" nillable="true" type="tns:DeliveryMethod" />
+  <xs:complexType name="RecipientEmailNotification">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q19:PropertyChangedEventHandler" />
+      <xs:element name="emailBlurbField" nillable="true" type="xs:string" />
+      <xs:element name="languageField" type="tns:SupportedLanguage" />
+      <xs:element name="languageFieldSpecified" type="xs:boolean" />
+      <xs:element name="subjectField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientEmailNotification" nillable="true" type="tns:RecipientEmailNotification" />
+  <xs:simpleType name="SupportedLanguage">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ar" />
+      <xs:enumeration value="bg" />
+      <xs:enumeration value="cs" />
+      <xs:enumeration value="da" />
+      <xs:enumeration value="de" />
+      <xs:enumeration value="el" />
+      <xs:enumeration value="en" />
+      <xs:enumeration value="en_GB" />
+      <xs:enumeration value="es" />
+      <xs:enumeration value="es_MX" />
+      <xs:enumeration value="et" />
+      <xs:enumeration value="fa" />
+      <xs:enumeration value="fi" />
+      <xs:enumeration value="fr" />
+      <xs:enumeration value="fr_CA" />
+      <xs:enumeration value="he" />
+      <xs:enumeration value="hi" />
+      <xs:enumeration value="hr" />
+      <xs:enumeration value="hu" />
+      <xs:enumeration value="id" />
+      <xs:enumeration value="it" />
+      <xs:enumeration value="ja" />
+      <xs:enumeration value="ko" />
+      <xs:enumeration value="lt" />
+      <xs:enumeration value="lv" />
+      <xs:enumeration value="ms" />
+      <xs:enumeration value="nl" />
+      <xs:enumeration value="no" />
+      <xs:enumeration value="pl" />
+      <xs:enumeration value="pt" />
+      <xs:enumeration value="pt_BR" />
+      <xs:enumeration value="ro" />
+      <xs:enumeration value="ru" />
+      <xs:enumeration value="sk" />
+      <xs:enumeration value="sl" />
+      <xs:enumeration value="sr" />
+      <xs:enumeration value="sv" />
+      <xs:enumeration value="th" />
+      <xs:enumeration value="tr" />
+      <xs:enumeration value="uk" />
+      <xs:enumeration value="vi" />
+      <xs:enumeration value="zh_CN" />
+      <xs:enumeration value="zh_TW" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SupportedLanguage" nillable="true" type="tns:SupportedLanguage" />
+  <xs:complexType name="IDCheckInformationInput">
+    <xs:sequence>
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q20:PropertyChangedEventHandler" />
+      <xs:element name="addressInformationInputField" nillable="true" type="tns:AddressInformationInput" />
+      <xs:element name="dOBInformationInputField" nillable="true" type="tns:DOBInformationInput" />
+      <xs:element name="sSN4InformationInputField" nillable="true" type="tns:SSN4InformationInput" />
+      <xs:element name="sSN9InformationInputField" nillable="true" type="tns:SSN9InformationInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IDCheckInformationInput" nillable="true" type="tns:IDCheckInformationInput" />
+  <xs:complexType name="AddressInformationInput">
+    <xs:sequence>
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q21:PropertyChangedEventHandler" />
+      <xs:element name="addressInformationField" nillable="true" type="tns:AddressInformation" />
+      <xs:element name="displayLevelField" type="tns:DisplayLevelCode" />
+      <xs:element name="displayLevelFieldSpecified" type="xs:boolean" />
+      <xs:element name="receiveInResponseField" type="xs:boolean" />
+      <xs:element name="receiveInResponseFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressInformationInput" nillable="true" type="tns:AddressInformationInput" />
+  <xs:complexType name="AddressInformation">
+    <xs:sequence>
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q22:PropertyChangedEventHandler" />
+      <xs:element name="cityField" nillable="true" type="xs:string" />
+      <xs:element name="stateField" nillable="true" type="xs:string" />
+      <xs:element name="street1Field" nillable="true" type="xs:string" />
+      <xs:element name="street2Field" nillable="true" type="xs:string" />
+      <xs:element name="zipField" nillable="true" type="xs:string" />
+      <xs:element name="zipPlus4Field" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressInformation" nillable="true" type="tns:AddressInformation" />
+  <xs:simpleType name="DisplayLevelCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ReadOnly" />
+      <xs:enumeration value="Editable" />
+      <xs:enumeration value="DoNotDisplay" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DisplayLevelCode" nillable="true" type="tns:DisplayLevelCode" />
+  <xs:complexType name="DOBInformationInput">
+    <xs:sequence>
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q23:PropertyChangedEventHandler" />
+      <xs:element name="dOBInformationField" nillable="true" type="tns:DOBInformation" />
+      <xs:element name="displayLevelField" type="tns:DisplayLevelCode" />
+      <xs:element name="displayLevelFieldSpecified" type="xs:boolean" />
+      <xs:element name="receiveInResponseField" type="xs:boolean" />
+      <xs:element name="receiveInResponseFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DOBInformationInput" nillable="true" type="tns:DOBInformationInput" />
+  <xs:complexType name="DOBInformation">
+    <xs:sequence>
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q24:PropertyChangedEventHandler" />
+      <xs:element name="dOBField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DOBInformation" nillable="true" type="tns:DOBInformation" />
+  <xs:complexType name="SSN4InformationInput">
+    <xs:sequence>
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q25:PropertyChangedEventHandler" />
+      <xs:element name="displayLevelField" type="tns:DisplayLevelCode" />
+      <xs:element name="displayLevelFieldSpecified" type="xs:boolean" />
+      <xs:element name="receiveInResponseField" type="xs:boolean" />
+      <xs:element name="receiveInResponseFieldSpecified" type="xs:boolean" />
+      <xs:element name="sSN4InformationField" nillable="true" type="tns:SSN4Information" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SSN4InformationInput" nillable="true" type="tns:SSN4InformationInput" />
+  <xs:complexType name="SSN4Information">
+    <xs:sequence>
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q26:PropertyChangedEventHandler" />
+      <xs:element name="sSN4Field" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SSN4Information" nillable="true" type="tns:SSN4Information" />
+  <xs:complexType name="SSN9InformationInput">
+    <xs:sequence>
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q27:PropertyChangedEventHandler" />
+      <xs:element name="displayLevelField" type="tns:DisplayLevelCode" />
+      <xs:element name="displayLevelFieldSpecified" type="xs:boolean" />
+      <xs:element name="sSN9InformationField" nillable="true" type="tns:SSN9Information" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SSN9InformationInput" nillable="true" type="tns:SSN9InformationInput" />
+  <xs:complexType name="SSN9Information">
+    <xs:sequence>
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q28:PropertyChangedEventHandler" />
+      <xs:element name="sSN9Field" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SSN9Information" nillable="true" type="tns:SSN9Information" />
+  <xs:complexType name="RecipientPhoneAuthentication">
+    <xs:sequence>
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q29:PropertyChangedEventHandler" />
+      <xs:element name="recipMayProvideNumberField" type="xs:boolean" />
+      <xs:element name="recipMayProvideNumberFieldSpecified" type="xs:boolean" />
+      <xs:element name="recordVoicePrintField" type="xs:boolean" />
+      <xs:element name="recordVoicePrintFieldSpecified" type="xs:boolean" />
+      <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="senderProvidedNumbersField" nillable="true" type="q30:ArrayOfstring" />
+      <xs:element name="validateRecipProvidedNumberField" type="xs:boolean" />
+      <xs:element name="validateRecipProvidedNumberFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientPhoneAuthentication" nillable="true" type="tns:RecipientPhoneAuthentication" />
+  <xs:complexType name="RecipientSAMLAuthentication">
+    <xs:sequence>
+      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q31:PropertyChangedEventHandler" />
+      <xs:element name="sAMLAttributesField" nillable="true" type="tns:ArrayOfSAMLAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientSAMLAuthentication" nillable="true" type="tns:RecipientSAMLAuthentication" />
+  <xs:complexType name="ArrayOfSAMLAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SAMLAttribute" nillable="true" type="tns:SAMLAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSAMLAttribute" nillable="true" type="tns:ArrayOfSAMLAttribute" />
+  <xs:complexType name="SAMLAttribute">
+    <xs:sequence>
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q32:PropertyChangedEventHandler" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SAMLAttribute" nillable="true" type="tns:SAMLAttribute" />
+  <xs:complexType name="RecipientSMSAuthentication">
+    <xs:sequence>
+      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q33:PropertyChangedEventHandler" />
+      <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="senderProvidedNumbersField" nillable="true" type="q34:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientSMSAuthentication" nillable="true" type="tns:RecipientSMSAuthentication" />
+  <xs:complexType name="RecipientSignatureInfo">
+    <xs:sequence>
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q35:PropertyChangedEventHandler" />
+      <xs:element name="fontStyleField" type="tns:FontStyleCode" />
+      <xs:element name="signatureInitialsField" nillable="true" type="xs:string" />
+      <xs:element name="signatureNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientSignatureInfo" nillable="true" type="tns:RecipientSignatureInfo" />
+  <xs:simpleType name="FontStyleCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RageItalic" />
+      <xs:enumeration value="Mistral" />
+      <xs:enumeration value="BradleyHandITC" />
+      <xs:enumeration value="KaufmannBT" />
+      <xs:enumeration value="Freehand575" />
+      <xs:enumeration value="LuciaBT" />
+      <xs:enumeration value="DocuSign1" />
+      <xs:enumeration value="DocuSign2" />
+      <xs:enumeration value="DocuSign3" />
+      <xs:enumeration value="DocuSign4" />
+      <xs:enumeration value="DocuSign5" />
+      <xs:enumeration value="DocuSign6" />
+      <xs:enumeration value="DocuSign7" />
+      <xs:enumeration value="DocuSign8" />
+      <xs:enumeration value="TAYubiHyojyunKaisyo" />
+      <xs:enumeration value="TASourinFude02" />
+      <xs:enumeration value="TAAkiko" />
+      <xs:enumeration value="TAAsako" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FontStyleCode" nillable="true" type="tns:FontStyleCode" />
+  <xs:simpleType name="RecipientTypeCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Signer" />
+      <xs:enumeration value="Agent" />
+      <xs:enumeration value="Editor" />
+      <xs:enumeration value="Intermediary" />
+      <xs:enumeration value="CarbonCopy" />
+      <xs:enumeration value="CertifiedDelivery" />
+      <xs:enumeration value="InPersonSigner" />
+      <xs:enumeration value="SigningHost" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RecipientTypeCode" nillable="true" type="tns:RecipientTypeCode" />
+  <xs:simpleType name="SigningLocationCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InPerson" />
+      <xs:enumeration value="Online" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SigningLocationCode" nillable="true" type="tns:SigningLocationCode" />
+  <xs:complexType name="ArrayOfTab">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tab" nillable="true" type="tns:Tab" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTab" nillable="true" type="tns:ArrayOfTab" />
+  <xs:complexType name="Tab">
+    <xs:sequence>
+      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q36:PropertyChangedEventHandler" />
+      <xs:element name="anchorTabItemField" nillable="true" type="tns:AnchorTab" />
+      <xs:element name="boldField" type="xs:boolean" />
+      <xs:element name="boldFieldSpecified" type="xs:boolean" />
+      <xs:element name="concealValueOnDocumentField" type="xs:boolean" />
+      <xs:element name="concealValueOnDocumentFieldSpecified" type="xs:boolean" />
+      <xs:element name="conditionalParentLabelField" nillable="true" type="xs:string" />
+      <xs:element name="conditionalParentValueField" nillable="true" type="xs:string" />
+      <xs:element name="customTabDisableAutoSizeField" type="xs:boolean" />
+      <xs:element name="customTabDisableAutoSizeFieldSpecified" type="xs:boolean" />
+      <xs:element name="customTabHeightField" type="xs:int" />
+      <xs:element name="customTabHeightFieldSpecified" type="xs:boolean" />
+      <xs:element name="customTabListItemsField" nillable="true" type="xs:string" />
+      <xs:element name="customTabListSelectedValueField" nillable="true" type="xs:string" />
+      <xs:element name="customTabListValuesField" nillable="true" type="xs:string" />
+      <xs:element name="customTabLockedField" type="xs:boolean" />
+      <xs:element name="customTabLockedFieldSpecified" type="xs:boolean" />
+      <xs:element name="customTabRadioGroupNameField" nillable="true" type="xs:string" />
+      <xs:element name="customTabRequiredField" type="xs:boolean" />
+      <xs:element name="customTabRequiredFieldSpecified" type="xs:boolean" />
+      <xs:element name="customTabTypeField" type="tns:CustomTabType" />
+      <xs:element name="customTabTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="customTabValidationMessageField" nillable="true" type="xs:string" />
+      <xs:element name="customTabValidationPatternField" nillable="true" type="xs:string" />
+      <xs:element name="customTabWidthField" type="xs:int" />
+      <xs:element name="customTabWidthFieldSpecified" type="xs:boolean" />
+      <xs:element name="documentIDField" nillable="true" type="xs:string" />
+      <xs:element name="fontColorField" type="tns:FontColor" />
+      <xs:element name="fontColorFieldSpecified" type="xs:boolean" />
+      <xs:element name="fontField" type="tns:Font" />
+      <xs:element name="fontFieldSpecified" type="xs:boolean" />
+      <xs:element name="fontSizeField" type="tns:FontSize" />
+      <xs:element name="fontSizeFieldSpecified" type="xs:boolean" />
+      <xs:element name="formulaField" nillable="true" type="xs:string" />
+      <xs:element name="includeNoteInEmailField" type="xs:boolean" />
+      <xs:element name="includeNoteInEmailFieldSpecified" type="xs:boolean" />
+      <xs:element name="isPaymentAmountField" type="xs:boolean" />
+      <xs:element name="isPaymentAmountFieldSpecified" type="xs:boolean" />
+      <xs:element name="italicField" type="xs:boolean" />
+      <xs:element name="italicFieldSpecified" type="xs:boolean" />
+      <xs:element name="maxLengthField" type="xs:int" />
+      <xs:element name="maxLengthFieldSpecified" type="xs:boolean" />
+      <xs:element name="mergeFieldXmlField" nillable="true" type="xs:string" />
+      <xs:element name="metadataXmlField" nillable="true" type="xs:string" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="pageNumberField" nillable="true" type="xs:string" />
+      <xs:element name="recipientIDField" nillable="true" type="xs:string" />
+      <xs:element name="requireAllField" type="xs:boolean" />
+      <xs:element name="requireAllFieldSpecified" type="xs:boolean" />
+      <xs:element name="requireInitialOnSharedTabChangeField" type="xs:boolean" />
+      <xs:element name="requireInitialOnSharedTabChangeFieldSpecified" type="xs:boolean" />
+      <xs:element name="roundDecimalPlacesField" type="xs:int" />
+      <xs:element name="roundDecimalPlacesFieldSpecified" type="xs:boolean" />
+      <xs:element name="scaleValueField" type="xs:decimal" />
+      <xs:element name="scaleValueFieldSpecified" type="xs:boolean" />
+      <xs:element name="senderRequiredField" type="xs:boolean" />
+      <xs:element name="senderRequiredFieldSpecified" type="xs:boolean" />
+      <xs:element name="sharedTabField" type="xs:boolean" />
+      <xs:element name="sharedTabFieldSpecified" type="xs:boolean" />
+      <xs:element name="tabLabelField" nillable="true" type="xs:string" />
+      <xs:element name="tabOrderField" type="xs:int" />
+      <xs:element name="tabOrderFieldSpecified" type="xs:boolean" />
+      <xs:element name="templateLockedField" type="xs:boolean" />
+      <xs:element name="templateLockedFieldSpecified" type="xs:boolean" />
+      <xs:element name="templateRequiredField" type="xs:boolean" />
+      <xs:element name="templateRequiredFieldSpecified" type="xs:boolean" />
+      <xs:element name="typeField" type="tns:TabTypeCode" />
+      <xs:element name="underlineField" type="xs:boolean" />
+      <xs:element name="underlineFieldSpecified" type="xs:boolean" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+      <xs:element name="xPositionField" nillable="true" type="xs:string" />
+      <xs:element name="yPositionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tab" nillable="true" type="tns:Tab" />
+  <xs:complexType name="AnchorTab">
+    <xs:sequence>
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q37:PropertyChangedEventHandler" />
+      <xs:element name="anchorTabProcessorVersionField" type="tns:AnchorTabProcessorVersion" />
+      <xs:element name="anchorTabProcessorVersionFieldSpecified" type="xs:boolean" />
+      <xs:element name="anchorTabStringField" nillable="true" type="xs:string" />
+      <xs:element name="caseSensitiveField" type="xs:boolean" />
+      <xs:element name="caseSensitiveFieldSpecified" type="xs:boolean" />
+      <xs:element name="horizontalAlignmentField" type="tns:HorizontalAlignmentType" />
+      <xs:element name="horizontalAlignmentFieldSpecified" type="xs:boolean" />
+      <xs:element name="ignoreIfNotPresentField" type="xs:boolean" />
+      <xs:element name="ignoreIfNotPresentFieldSpecified" type="xs:boolean" />
+      <xs:element name="matchWholeWordField" type="xs:boolean" />
+      <xs:element name="matchWholeWordFieldSpecified" type="xs:boolean" />
+      <xs:element name="unitField" type="tns:UnitTypeCode" />
+      <xs:element name="unitFieldSpecified" type="xs:boolean" />
+      <xs:element name="xOffsetField" type="xs:double" />
+      <xs:element name="yOffsetField" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnchorTab" nillable="true" type="tns:AnchorTab" />
+  <xs:simpleType name="AnchorTabProcessorVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="V1_0" />
+      <xs:enumeration value="V1_1" />
+      <xs:enumeration value="V1_2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AnchorTabProcessorVersion" nillable="true" type="tns:AnchorTabProcessorVersion" />
+  <xs:simpleType name="HorizontalAlignmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HorizontalAlignmentType" nillable="true" type="tns:HorizontalAlignmentType" />
+  <xs:simpleType name="UnitTypeCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pixels" />
+      <xs:enumeration value="Mms" />
+      <xs:enumeration value="Cms" />
+      <xs:enumeration value="Inches" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UnitTypeCode" nillable="true" type="tns:UnitTypeCode" />
+  <xs:simpleType name="CustomTabType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="Checkbox" />
+      <xs:enumeration value="Radio" />
+      <xs:enumeration value="List" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="Number" />
+      <xs:enumeration value="SSN" />
+      <xs:enumeration value="ZIP5" />
+      <xs:enumeration value="ZIP5DASH4" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Note" />
+      <xs:enumeration value="Formula" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CustomTabType" nillable="true" type="tns:CustomTabType" />
+  <xs:simpleType name="FontColor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Black" />
+      <xs:enumeration value="BrightBlue" />
+      <xs:enumeration value="BrightRed" />
+      <xs:enumeration value="DarkRed" />
+      <xs:enumeration value="DarkGreen" />
+      <xs:enumeration value="Gold" />
+      <xs:enumeration value="Green" />
+      <xs:enumeration value="NavyBlue" />
+      <xs:enumeration value="Purple" />
+      <xs:enumeration value="White" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FontColor" nillable="true" type="tns:FontColor" />
+  <xs:simpleType name="Font">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Arial" />
+      <xs:enumeration value="ArialNarrow" />
+      <xs:enumeration value="Calibri" />
+      <xs:enumeration value="CourierNew" />
+      <xs:enumeration value="Garamond" />
+      <xs:enumeration value="Georgia" />
+      <xs:enumeration value="Helvetica" />
+      <xs:enumeration value="LucidaConsole" />
+      <xs:enumeration value="Tahoma" />
+      <xs:enumeration value="TimesNewRoman" />
+      <xs:enumeration value="Trebuchet" />
+      <xs:enumeration value="Verdana" />
+      <xs:enumeration value="MSGothic" />
+      <xs:enumeration value="MSMincho" />
+      <xs:enumeration value="OcrA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Font" nillable="true" type="tns:Font" />
+  <xs:simpleType name="FontSize">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Size7" />
+      <xs:enumeration value="Size8" />
+      <xs:enumeration value="Size9" />
+      <xs:enumeration value="Size10" />
+      <xs:enumeration value="Size11" />
+      <xs:enumeration value="Size12" />
+      <xs:enumeration value="Size14" />
+      <xs:enumeration value="Size16" />
+      <xs:enumeration value="Size18" />
+      <xs:enumeration value="Size20" />
+      <xs:enumeration value="Size22" />
+      <xs:enumeration value="Size24" />
+      <xs:enumeration value="Size26" />
+      <xs:enumeration value="Size28" />
+      <xs:enumeration value="Size36" />
+      <xs:enumeration value="Size48" />
+      <xs:enumeration value="Size72" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FontSize" nillable="true" type="tns:FontSize" />
+  <xs:simpleType name="TabTypeCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InitialHere" />
+      <xs:enumeration value="SignHere" />
+      <xs:enumeration value="FullName" />
+      <xs:enumeration value="FirstName" />
+      <xs:enumeration value="LastName" />
+      <xs:enumeration value="EmailAddress" />
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="Title" />
+      <xs:enumeration value="DateSigned" />
+      <xs:enumeration value="InitialHereOptional" />
+      <xs:enumeration value="EnvelopeID" />
+      <xs:enumeration value="Custom" />
+      <xs:enumeration value="SignerAttachment" />
+      <xs:enumeration value="SignHereOptional" />
+      <xs:enumeration value="Approve" />
+      <xs:enumeration value="Decline" />
+      <xs:enumeration value="SignerAttachmentOptional" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TabTypeCode" nillable="true" type="tns:TabTypeCode" />
+  <xs:complexType name="VaultingOptions">
+    <xs:sequence>
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q38:PropertyChangedEventHandler" />
+      <xs:element name="eODDocumentDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="eODDocumentNameField" nillable="true" type="xs:string" />
+      <xs:element name="eODTransactionNameField" nillable="true" type="xs:string" />
+      <xs:element name="vaultingModeField" type="tns:VaultingModeCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VaultingOptions" nillable="true" type="tns:VaultingOptions" />
+  <xs:simpleType name="VaultingModeCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="EODeStore" />
+      <xs:enumeration value="EODAuthoritativeCopy" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VaultingModeCode" nillable="true" type="tns:VaultingModeCode" />
+  <xs:complexType name="EnvelopeStatus">
+    <xs:sequence>
+      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q39:PropertyChangedEventHandler" />
+      <xs:element name="aCHolderEmailField" nillable="true" type="xs:string" />
+      <xs:element name="aCHolderField" nillable="true" type="xs:string" />
+      <xs:element name="aCHolderLocationField" nillable="true" type="xs:string" />
+      <xs:element name="aCStatusDateField" type="xs:dateTime" />
+      <xs:element name="aCStatusField" nillable="true" type="xs:string" />
+      <xs:element name="authoritativeCopyField" type="xs:boolean" />
+      <xs:element name="authoritativeCopyFieldSpecified" type="xs:boolean" />
+      <xs:element name="autoNavigationField" type="xs:boolean" />
+      <xs:element name="completedField" type="xs:dateTime" />
+      <xs:element name="completedFieldSpecified" type="xs:boolean" />
+      <xs:element name="createdField" type="xs:dateTime" />
+      <xs:element name="customFieldsField" nillable="true" type="tns:ArrayOfCustomField" />
+      <xs:element name="declinedField" type="xs:dateTime" />
+      <xs:element name="declinedFieldSpecified" type="xs:boolean" />
+      <xs:element name="deletedField" type="xs:dateTime" />
+      <xs:element name="deletedFieldSpecified" type="xs:boolean" />
+      <xs:element name="deliveredField" type="xs:dateTime" />
+      <xs:element name="deliveredFieldSpecified" type="xs:boolean" />
+      <xs:element name="documentStatusesField" nillable="true" type="tns:ArrayOfDocumentStatus" />
+      <xs:element name="emailField" nillable="true" type="xs:string" />
+      <xs:element name="envelopeAttachmentField" nillable="true" type="tns:ArrayOfAttachment" />
+      <xs:element name="envelopeIDField" nillable="true" type="xs:string" />
+      <xs:element name="envelopeIdStampingField" type="xs:boolean" />
+      <xs:element name="envelopePDFHashField" nillable="true" type="xs:string" />
+      <xs:element name="formDataField" nillable="true" type="tns:FormData" />
+      <xs:element name="recipientStatusesField" nillable="true" type="tns:ArrayOfRecipientStatus" />
+      <xs:element name="senderIPAddressField" nillable="true" type="xs:string" />
+      <xs:element name="sentField" type="xs:dateTime" />
+      <xs:element name="sentFieldSpecified" type="xs:boolean" />
+      <xs:element name="signedField" type="xs:dateTime" />
+      <xs:element name="signedFieldSpecified" type="xs:boolean" />
+      <xs:element name="signingLocationField" type="tns:SigningLocationCode" />
+      <xs:element name="statusField" type="tns:EnvelopeStatusCode" />
+      <xs:element name="subjectField" nillable="true" type="xs:string" />
+      <xs:element name="timeGeneratedField" type="xs:dateTime" />
+      <xs:element name="timedOutField" type="xs:dateTime" />
+      <xs:element name="timedOutFieldSpecified" type="xs:boolean" />
+      <xs:element name="userNameField" nillable="true" type="xs:string" />
+      <xs:element name="vaultingDetailsField" nillable="true" type="tns:VaultingDetails" />
+      <xs:element name="voidReasonField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnvelopeStatus" nillable="true" type="tns:EnvelopeStatus" />
+  <xs:complexType name="ArrayOfDocumentStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentStatus" nillable="true" type="tns:DocumentStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentStatus" nillable="true" type="tns:ArrayOfDocumentStatus" />
+  <xs:complexType name="DocumentStatus">
+    <xs:sequence>
+      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q40:PropertyChangedEventHandler" />
+      <xs:element name="documentFieldsField" nillable="true" type="tns:ArrayOfDocumentField" />
+      <xs:element name="idField" nillable="true" type="xs:string" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="sequenceField" nillable="true" type="xs:string" />
+      <xs:element name="templateNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentStatus" nillable="true" type="tns:DocumentStatus" />
+  <xs:complexType name="FormData">
+    <xs:sequence>
+      <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q41:PropertyChangedEventHandler" />
+      <xs:element name="xfdfField" nillable="true" type="tns:FormDataXfdf" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FormData" nillable="true" type="tns:FormData" />
+  <xs:complexType name="FormDataXfdf">
+    <xs:sequence>
+      <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q42:PropertyChangedEventHandler" />
+      <xs:element name="fieldsField" nillable="true" type="tns:ArrayOfFormDataXfdfField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FormDataXfdf" nillable="true" type="tns:FormDataXfdf" />
+  <xs:complexType name="ArrayOfFormDataXfdfField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FormDataXfdfField" nillable="true" type="tns:FormDataXfdfField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFormDataXfdfField" nillable="true" type="tns:ArrayOfFormDataXfdfField" />
+  <xs:complexType name="FormDataXfdfField">
+    <xs:sequence>
+      <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q43:PropertyChangedEventHandler" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FormDataXfdfField" nillable="true" type="tns:FormDataXfdfField" />
+  <xs:complexType name="ArrayOfRecipientStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecipientStatus" nillable="true" type="tns:RecipientStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecipientStatus" nillable="true" type="tns:ArrayOfRecipientStatus" />
+  <xs:complexType name="RecipientStatus">
+    <xs:sequence>
+      <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q44:PropertyChangedEventHandler" />
+      <xs:element name="accountStatusField" nillable="true" type="xs:string" />
+      <xs:element name="autoNavigationField" type="xs:boolean" />
+      <xs:element name="autoNavigationFieldSpecified" type="xs:boolean" />
+      <xs:element name="autoRespondedReasonField" nillable="true" type="xs:string" />
+      <xs:element name="clientUserIdField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="customFieldsField" nillable="true" type="q45:ArrayOfstring" />
+      <xs:element name="declineReasonField" nillable="true" type="xs:string" />
+      <xs:element name="declinedField" type="xs:dateTime" />
+      <xs:element name="declinedFieldSpecified" type="xs:boolean" />
+      <xs:element name="deliveredField" type="xs:dateTime" />
+      <xs:element name="deliveredFieldSpecified" type="xs:boolean" />
+      <xs:element name="deliveryMethodField" type="tns:DeliveryMethod" />
+      <xs:element name="deliveryMethodFieldSpecified" type="xs:boolean" />
+      <xs:element name="emailField" nillable="true" type="xs:string" />
+      <xs:element name="esignAgreementInformationField" nillable="true" type="tns:RecipientStatusEsignAgreementInformation" />
+      <xs:element name="faxNumberField" nillable="true" type="xs:string" />
+      <xs:element name="formDataField" nillable="true" type="tns:FormData" />
+      <xs:element name="iDCheckInformationField" nillable="true" type="tns:IDCheckInformation" />
+      <xs:element name="recipientAttachmentField" nillable="true" type="tns:ArrayOfAttachment" />
+      <xs:element name="recipientAuthenticationStatusField" nillable="true" type="tns:AuthenticationStatus" />
+      <xs:element name="recipientIPAddressField" nillable="true" type="xs:string" />
+      <xs:element name="recipientIdField" nillable="true" type="xs:string" />
+      <xs:element name="routingOrderField" type="xs:unsignedShort" />
+      <xs:element name="sentField" type="xs:dateTime" />
+      <xs:element name="sentFieldSpecified" type="xs:boolean" />
+      <xs:element name="signedField" type="xs:dateTime" />
+      <xs:element name="signedFieldSpecified" type="xs:boolean" />
+      <xs:element name="statusField" type="tns:RecipientStatusCode" />
+      <xs:element name="tabStatusesField" nillable="true" type="tns:ArrayOfTabStatus" />
+      <xs:element name="typeField" type="tns:RecipientTypeCode" />
+      <xs:element name="userNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientStatus" nillable="true" type="tns:RecipientStatus" />
+  <xs:complexType name="RecipientStatusEsignAgreementInformation">
+    <xs:sequence>
+      <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q46:PropertyChangedEventHandler" />
+      <xs:element name="accountEsignIdField" nillable="true" type="xs:string" />
+      <xs:element name="agreementDateField" type="xs:dateTime" />
+      <xs:element name="userEsignIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientStatusEsignAgreementInformation" nillable="true" type="tns:RecipientStatusEsignAgreementInformation" />
+  <xs:complexType name="IDCheckInformation">
+    <xs:sequence>
+      <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q47:PropertyChangedEventHandler" />
+      <xs:element name="addressInformationField" nillable="true" type="tns:AddressInformation" />
+      <xs:element name="dOBInformationField" nillable="true" type="tns:DOBInformation" />
+      <xs:element name="sSN4InformationField" nillable="true" type="tns:SSN4Information" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IDCheckInformation" nillable="true" type="tns:IDCheckInformation" />
+  <xs:complexType name="AuthenticationStatus">
+    <xs:sequence>
+      <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q48:PropertyChangedEventHandler" />
+      <xs:element name="accessCodeResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="ageVerifyResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="anySocialIDResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="facebookResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="googleResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="iDLookupResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="iDQuestionsResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="linkedinResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="liveIDResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="oFACResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="openIDResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="phoneAuthResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="sTANPinResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="salesforceResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="twitterResultField" nillable="true" type="tns:EventResult" />
+      <xs:element name="yahooResultField" nillable="true" type="tns:EventResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthenticationStatus" nillable="true" type="tns:AuthenticationStatus" />
+  <xs:complexType name="EventResult">
+    <xs:sequence>
+      <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q49:PropertyChangedEventHandler" />
+      <xs:element name="eventTimestampField" type="xs:dateTime" />
+      <xs:element name="failureDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="statusField" type="tns:EventStatusCode" />
+      <xs:element name="vendorFailureStatusCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventResult" nillable="true" type="tns:EventResult" />
+  <xs:simpleType name="EventStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Passed" />
+      <xs:enumeration value="Failed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EventStatusCode" nillable="true" type="tns:EventStatusCode" />
+  <xs:simpleType name="RecipientStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="Signed" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="FaxPending" />
+      <xs:enumeration value="AutoResponded" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RecipientStatusCode" nillable="true" type="tns:RecipientStatusCode" />
+  <xs:complexType name="ArrayOfTabStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TabStatus" nillable="true" type="tns:TabStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTabStatus" nillable="true" type="tns:ArrayOfTabStatus" />
+  <xs:complexType name="TabStatus">
+    <xs:sequence>
+      <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q50:PropertyChangedEventHandler" />
+      <xs:element name="customTabTypeField" type="tns:CustomTabType" />
+      <xs:element name="customTabTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="documentIDField" nillable="true" type="xs:string" />
+      <xs:element name="listSelectedValueField" nillable="true" type="xs:string" />
+      <xs:element name="listValuesField" nillable="true" type="xs:string" />
+      <xs:element name="originalValueField" nillable="true" type="xs:string" />
+      <xs:element name="pageNumberField" nillable="true" type="xs:string" />
+      <xs:element name="roleNameField" nillable="true" type="xs:string" />
+      <xs:element name="scaleValueField" type="xs:decimal" />
+      <xs:element name="scaleValueFieldSpecified" type="xs:boolean" />
+      <xs:element name="signedField" type="xs:dateTime" />
+      <xs:element name="signedFieldSpecified" type="xs:boolean" />
+      <xs:element name="statusField" nillable="true" type="xs:string" />
+      <xs:element name="tabLabelField" nillable="true" type="xs:string" />
+      <xs:element name="tabNameField" nillable="true" type="xs:string" />
+      <xs:element name="tabTypeField" type="tns:TabTypeCode" />
+      <xs:element name="tabValueField" nillable="true" type="xs:string" />
+      <xs:element name="validationPatternField" nillable="true" type="xs:string" />
+      <xs:element name="xPositionField" type="xs:double" />
+      <xs:element name="yPositionField" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TabStatus" nillable="true" type="tns:TabStatus" />
+  <xs:simpleType name="EnvelopeStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Any" />
+      <xs:enumeration value="Voided" />
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="Signed" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="TimedOut" />
+      <xs:enumeration value="Template" />
+      <xs:enumeration value="Processing" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EnvelopeStatusCode" nillable="true" type="tns:EnvelopeStatusCode" />
+  <xs:complexType name="VaultingDetails">
+    <xs:sequence>
+      <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q51:PropertyChangedEventHandler" />
+      <xs:element name="eODDocumentProfileIDField" nillable="true" type="xs:string" />
+      <xs:element name="eODTransactionIDField" nillable="true" type="xs:string" />
+      <xs:element name="eODTransactionNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VaultingDetails" nillable="true" type="tns:VaultingDetails" />
+  <xs:complexType name="EnvelopePDF">
+    <xs:sequence>
+      <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q52:PropertyChangedEventHandler" />
+      <xs:element name="envelopeIDField" nillable="true" type="xs:string" />
+      <xs:element name="pDFBytesField" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnvelopePDF" nillable="true" type="tns:EnvelopePDF" />
+  <xs:complexType name="DocumentPDFs">
+    <xs:sequence>
+      <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q53:PropertyChangedEventHandler" />
+      <xs:element name="documentPDFField" nillable="true" type="tns:ArrayOfDocumentPDF" />
+      <xs:element name="envelopeIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentPDFs" nillable="true" type="tns:DocumentPDFs" />
+  <xs:complexType name="ArrayOfDocumentPDF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentPDF" nillable="true" type="tns:DocumentPDF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentPDF" nillable="true" type="tns:ArrayOfDocumentPDF" />
+  <xs:complexType name="DocumentPDF">
+    <xs:sequence>
+      <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q54:PropertyChangedEventHandler" />
+      <xs:element name="documentIDField" nillable="true" type="xs:string" />
+      <xs:element name="documentTypeField" type="tns:DocumentType" />
+      <xs:element name="documentTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="pDFBytesField" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentPDF" nillable="true" type="tns:DocumentPDF" />
+  <xs:simpleType name="DocumentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUMMARY" />
+      <xs:enumeration value="CONTENT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentType" nillable="true" type="tns:DocumentType" />
+</xs:schema>

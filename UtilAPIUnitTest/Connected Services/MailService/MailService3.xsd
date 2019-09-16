@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UtilAPIService.UPSTrackService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UtilAPIService.UPSTrackService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49490/MailService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="TrackRequest">
+    <xs:sequence>
+      <xs:element name="candidateBookmarkField" nillable="true" type="xs:string" />
+      <xs:element name="includeMailInnovationIndicatorField" nillable="true" type="xs:string" />
+      <xs:element name="inquiryNumberField" nillable="true" type="xs:string" />
+      <xs:element name="pickupDateRangeField" nillable="true" type="tns:PickupDateRangeType" />
+      <xs:element name="referenceNumberField" nillable="true" type="tns:ReferenceNumberType" />
+      <xs:element name="requestField" nillable="true" type="tns:RequestType" />
+      <xs:element name="shipFromField" nillable="true" type="tns:ShipFromRequestType" />
+      <xs:element name="shipToField" nillable="true" type="tns:ShipToRequestType" />
+      <xs:element name="shipmentTypeField" nillable="true" type="tns:RefShipmentType" />
+      <xs:element name="shipperAccountInfoField" nillable="true" type="tns:ShipperAccountInfoType" />
+      <xs:element name="shipperNumberField" nillable="true" type="xs:string" />
+      <xs:element name="trackingOptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackRequest" nillable="true" type="tns:TrackRequest" />
+  <xs:complexType name="PickupDateRangeType">
+    <xs:sequence>
+      <xs:element name="beginDateField" nillable="true" type="xs:string" />
+      <xs:element name="endDateField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PickupDateRangeType" nillable="true" type="tns:PickupDateRangeType" />
+  <xs:complexType name="ReferenceNumberType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferenceNumberType" nillable="true" type="tns:ReferenceNumberType" />
+  <xs:complexType name="RequestType">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="requestOptionField" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element name="subVersionField" nillable="true" type="xs:string" />
+      <xs:element name="transactionReferenceField" nillable="true" type="tns:TransactionReferenceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestType" nillable="true" type="tns:RequestType" />
+  <xs:complexType name="TransactionReferenceType">
+    <xs:sequence>
+      <xs:element name="customerContextField" nillable="true" type="xs:string" />
+      <xs:element name="transactionIdentifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionReferenceType" nillable="true" type="tns:TransactionReferenceType" />
+  <xs:complexType name="ShipFromRequestType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressRequestType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipFromRequestType" nillable="true" type="tns:ShipFromRequestType" />
+  <xs:complexType name="AddressRequestType">
+    <xs:sequence>
+      <xs:element name="countryCodeField" nillable="true" type="xs:string" />
+      <xs:element name="postalCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressRequestType" nillable="true" type="tns:AddressRequestType" />
+  <xs:complexType name="ShipToRequestType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressRequestType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipToRequestType" nillable="true" type="tns:ShipToRequestType" />
+  <xs:complexType name="RefShipmentType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RefShipmentType" nillable="true" type="tns:RefShipmentType" />
+  <xs:complexType name="ShipperAccountInfoType">
+    <xs:sequence>
+      <xs:element name="countryCodeField" nillable="true" type="xs:string" />
+      <xs:element name="postalCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipperAccountInfoType" nillable="true" type="tns:ShipperAccountInfoType" />
+  <xs:complexType name="TrackResponse">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="disclaimerField" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element name="responseField" nillable="true" type="tns:ResponseType" />
+      <xs:element name="shipmentField" nillable="true" type="tns:ArrayOfShipmentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackResponse" nillable="true" type="tns:TrackResponse" />
+  <xs:complexType name="ResponseType">
+    <xs:sequence>
+      <xs:element name="alertField" nillable="true" type="tns:ArrayOfCodeDescriptionType" />
+      <xs:element name="responseStatusField" nillable="true" type="tns:CodeDescriptionType" />
+      <xs:element name="transactionReferenceField" nillable="true" type="tns:TransactionReferenceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseType" nillable="true" type="tns:ResponseType" />
+  <xs:complexType name="ArrayOfCodeDescriptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeDescriptionType" nillable="true" type="tns:CodeDescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeDescriptionType" nillable="true" type="tns:ArrayOfCodeDescriptionType" />
+  <xs:complexType name="CodeDescriptionType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeDescriptionType" nillable="true" type="tns:CodeDescriptionType" />
+  <xs:complexType name="ArrayOfShipmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShipmentType" nillable="true" type="tns:ShipmentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShipmentType" nillable="true" type="tns:ArrayOfShipmentType" />
+  <xs:complexType name="ShipmentType">
+    <xs:sequence>
+      <xs:element name="activityField" nillable="true" type="tns:ArrayOfShipmentActivityType" />
+      <xs:element name="additionalAttributeField" nillable="true" type="tns:ArrayOfAdditionalCodeDescriptionValueType" />
+      <xs:element name="appointmentField" nillable="true" type="tns:AppointmentType" />
+      <xs:element name="billToNameField" nillable="true" type="xs:string" />
+      <xs:element name="cODField" nillable="true" type="tns:CODType" />
+      <xs:element name="candidateBookmarkField" nillable="true" type="xs:string" />
+      <xs:element name="cargoReadyField" nillable="true" type="tns:DateTimeType" />
+      <xs:element name="carrierActivityInformationField" nillable="true" type="tns:ArrayOfCarrierActivityInformationType" />
+      <xs:element name="currentStatusField" nillable="true" type="tns:CommonCodeDescriptionType" />
+      <xs:element name="deliveryDateUnavailableField" nillable="true" type="tns:DeliveryDateUnavailableType" />
+      <xs:element name="deliveryDetailField" nillable="true" type="tns:ArrayOfDeliveryDetailType" />
+      <xs:element name="descriptionOfGoodsField" nillable="true" type="xs:string" />
+      <xs:element name="destinationPortDetailField" nillable="true" type="tns:DestinationPortDetailType" />
+      <xs:element name="documentField" nillable="true" type="tns:ArrayOfDocumentType" />
+      <xs:element name="fileNumberField" nillable="true" type="xs:string" />
+      <xs:element name="inquiryNumberField" nillable="true" type="tns:CodeDescriptionValueType" />
+      <xs:element name="manifestField" nillable="true" type="tns:DateTimeType" />
+      <xs:element name="numberOfPackagingUnitField" nillable="true" type="tns:ArrayOfNumberOfPackagingUnitType" />
+      <xs:element name="originPortDetailField" nillable="true" type="tns:OriginPortDetailType" />
+      <xs:element name="packageField" nillable="true" type="tns:ArrayOfPackageType" />
+      <xs:element name="pickupDateField" nillable="true" type="xs:string" />
+      <xs:element name="referenceNumberField" nillable="true" type="tns:ArrayOfShipmentReferenceNumberType" />
+      <xs:element name="serviceCenterField" nillable="true" type="tns:ArrayOfServiceCenterType" />
+      <xs:element name="serviceField" nillable="true" type="tns:ServiceType" />
+      <xs:element name="shipmentAddressField" nillable="true" type="tns:ArrayOfShipmentAddressType" />
+      <xs:element name="shipmentServiceOptionField" nillable="true" type="tns:ArrayOfServiceOptionType" />
+      <xs:element name="shipmentType1Field" nillable="true" type="tns:RefShipmentType" />
+      <xs:element name="shipmentWeightField" nillable="true" type="tns:WeightType" />
+      <xs:element name="shipperNumberField" nillable="true" type="xs:string" />
+      <xs:element name="signedForByNameField" nillable="true" type="xs:string" />
+      <xs:element name="volumeField" nillable="true" type="tns:VolumeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipmentType" nillable="true" type="tns:ShipmentType" />
+  <xs:complexType name="ArrayOfShipmentActivityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShipmentActivityType" nillable="true" type="tns:ShipmentActivityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShipmentActivityType" nillable="true" type="tns:ArrayOfShipmentActivityType" />
+  <xs:complexType name="ShipmentActivityType">
+    <xs:sequence>
+      <xs:element name="activityLocationField" nillable="true" type="tns:AddressType" />
+      <xs:element name="additionalAttributeField" nillable="true" type="tns:ArrayOfAdditionalCodeDescriptionValueType" />
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="dateField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="documentField" nillable="true" type="tns:ArrayOfDocumentType" />
+      <xs:element name="timeField" nillable="true" type="xs:string" />
+      <xs:element name="trailerField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipmentActivityType" nillable="true" type="tns:ShipmentActivityType" />
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="addressLineField" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element name="cityField" nillable="true" type="xs:string" />
+      <xs:element name="countryCodeField" nillable="true" type="xs:string" />
+      <xs:element name="postalCodeField" nillable="true" type="xs:string" />
+      <xs:element name="stateProvinceCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:complexType name="ArrayOfAdditionalCodeDescriptionValueType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalCodeDescriptionValueType" nillable="true" type="tns:AdditionalCodeDescriptionValueType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdditionalCodeDescriptionValueType" nillable="true" type="tns:ArrayOfAdditionalCodeDescriptionValueType" />
+  <xs:complexType name="AdditionalCodeDescriptionValueType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalCodeDescriptionValueType" nillable="true" type="tns:AdditionalCodeDescriptionValueType" />
+  <xs:complexType name="ArrayOfDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentType" nillable="true" type="tns:DocumentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentType" nillable="true" type="tns:ArrayOfDocumentType" />
+  <xs:complexType name="DocumentType">
+    <xs:sequence>
+      <xs:element name="contentField" nillable="true" type="xs:string" />
+      <xs:element name="formatField" nillable="true" type="tns:CommonCodeDescriptionType" />
+      <xs:element name="typeField" nillable="true" type="tns:CommonCodeDescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentType" nillable="true" type="tns:DocumentType" />
+  <xs:complexType name="CommonCodeDescriptionType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommonCodeDescriptionType" nillable="true" type="tns:CommonCodeDescriptionType" />
+  <xs:complexType name="AppointmentType">
+    <xs:sequence>
+      <xs:element name="beginTimeField" nillable="true" type="xs:string" />
+      <xs:element name="endTimeField" nillable="true" type="xs:string" />
+      <xs:element name="madeField" nillable="true" type="tns:DateTimeType" />
+      <xs:element name="requestedField" nillable="true" type="tns:DateTimeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppointmentType" nillable="true" type="tns:AppointmentType" />
+  <xs:complexType name="DateTimeType">
+    <xs:sequence>
+      <xs:element name="dateField" nillable="true" type="xs:string" />
+      <xs:element name="timeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DateTimeType" nillable="true" type="tns:DateTimeType" />
+  <xs:complexType name="CODType">
+    <xs:sequence>
+      <xs:element name="amountField" nillable="true" type="tns:AmountType" />
+      <xs:element name="controlNumberField" nillable="true" type="xs:string" />
+      <xs:element name="statusField" nillable="true" type="tns:CODStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CODType" nillable="true" type="tns:CODType" />
+  <xs:complexType name="AmountType">
+    <xs:sequence>
+      <xs:element name="currencyCodeField" nillable="true" type="xs:string" />
+      <xs:element name="monetaryValueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AmountType" nillable="true" type="tns:AmountType" />
+  <xs:complexType name="CODStatusType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CODStatusType" nillable="true" type="tns:CODStatusType" />
+  <xs:complexType name="ArrayOfCarrierActivityInformationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarrierActivityInformationType" nillable="true" type="tns:CarrierActivityInformationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarrierActivityInformationType" nillable="true" type="tns:ArrayOfCarrierActivityInformationType" />
+  <xs:complexType name="CarrierActivityInformationType">
+    <xs:sequence>
+      <xs:element name="arrivalField" nillable="true" type="tns:DateTimeType" />
+      <xs:element name="carrierIdField" nillable="true" type="xs:string" />
+      <xs:element name="departureField" nillable="true" type="tns:DateTimeType" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="destinationPortField" nillable="true" type="xs:string" />
+      <xs:element name="originPortField" nillable="true" type="xs:string" />
+      <xs:element name="statusField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierActivityInformationType" nillable="true" type="tns:CarrierActivityInformationType" />
+  <xs:complexType name="DeliveryDateUnavailableType">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliveryDateUnavailableType" nillable="true" type="tns:DeliveryDateUnavailableType" />
+  <xs:complexType name="ArrayOfDeliveryDetailType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryDetailType" nillable="true" type="tns:DeliveryDetailType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryDetailType" nillable="true" type="tns:ArrayOfDeliveryDetailType" />
+  <xs:complexType name="DeliveryDetailType">
+    <xs:sequence>
+      <xs:element name="dateField" nillable="true" type="xs:string" />
+      <xs:element name="timeField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="tns:CommonCodeDescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliveryDetailType" nillable="true" type="tns:DeliveryDetailType" />
+  <xs:complexType name="DestinationPortDetailType">
+    <xs:sequence>
+      <xs:element name="destinationPortField" nillable="true" type="xs:string" />
+      <xs:element name="estimatedArrivalField" nillable="true" type="tns:DateTimeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DestinationPortDetailType" nillable="true" type="tns:DestinationPortDetailType" />
+  <xs:complexType name="CodeDescriptionValueType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeDescriptionValueType" nillable="true" type="tns:CodeDescriptionValueType" />
+  <xs:complexType name="ArrayOfNumberOfPackagingUnitType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NumberOfPackagingUnitType" nillable="true" type="tns:NumberOfPackagingUnitType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNumberOfPackagingUnitType" nillable="true" type="tns:ArrayOfNumberOfPackagingUnitType" />
+  <xs:complexType name="NumberOfPackagingUnitType">
+    <xs:sequence>
+      <xs:element name="typeField" nillable="true" type="tns:CommonCodeDescriptionType" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NumberOfPackagingUnitType" nillable="true" type="tns:NumberOfPackagingUnitType" />
+  <xs:complexType name="OriginPortDetailType">
+    <xs:sequence>
+      <xs:element name="estimatedDepartureField" nillable="true" type="tns:DateTimeType" />
+      <xs:element name="originPortField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OriginPortDetailType" nillable="true" type="tns:OriginPortDetailType" />
+  <xs:complexType name="ArrayOfPackageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageType" nillable="true" type="tns:PackageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageType" nillable="true" type="tns:ArrayOfPackageType" />
+  <xs:complexType name="PackageType">
+    <xs:sequence>
+      <xs:element name="activityField" nillable="true" type="tns:ArrayOfActivityType" />
+      <xs:element name="additionalAttributeField" nillable="true" type="tns:ArrayOfAdditionalCodeDescriptionValueType" />
+      <xs:element name="alternateTrackingInfoField" nillable="true" type="tns:ArrayOfAlternateTrackingInfoType" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="alternateTrackingNumberField" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element name="cODField" nillable="true" type="tns:CODType" />
+      <xs:element name="deliveryDetailField" nillable="true" type="tns:ArrayOfDeliveryDetailType" />
+      <xs:element name="dimensionalWeightScanIndicatorField" nillable="true" type="xs:string" />
+      <xs:element name="documentField" nillable="true" type="tns:ArrayOfDocumentType" />
+      <xs:element name="messageField" nillable="true" type="tns:ArrayOfMessageType" />
+      <xs:element name="packageAddressField" nillable="true" type="tns:ArrayOfPackageAddressType" />
+      <xs:element name="packageServiceOptionField" nillable="true" type="tns:ArrayOfServiceOptionType" />
+      <xs:element name="packageWeightField" nillable="true" type="tns:WeightType" />
+      <xs:element name="redirectField" nillable="true" type="tns:RedirectType" />
+      <xs:element name="referenceNumberField" nillable="true" type="tns:ArrayOfReferenceNumberType" />
+      <xs:element name="trackingNumberField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageType" nillable="true" type="tns:PackageType" />
+  <xs:complexType name="ArrayOfActivityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActivityType" nillable="true" type="tns:ActivityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActivityType" nillable="true" type="tns:ArrayOfActivityType" />
+  <xs:complexType name="ActivityType">
+    <xs:sequence>
+      <xs:element name="activityLocationField" nillable="true" type="tns:ActivityLocationType" />
+      <xs:element name="additionalAttributeField" nillable="true" type="tns:ArrayOfAdditionalCodeDescriptionValueType" />
+      <xs:element name="alternateTrackingInfoField" nillable="true" type="tns:ArrayOfAlternateTrackingInfoType" />
+      <xs:element name="dateField" nillable="true" type="xs:string" />
+      <xs:element name="deliveryDateFromManifestIndicatorField" nillable="true" type="xs:string" />
+      <xs:element name="documentField" nillable="true" type="tns:ArrayOfDocumentType" />
+      <xs:element name="nextScheduleActivityField" nillable="true" type="tns:NextScheduleActivityType" />
+      <xs:element name="statusField" nillable="true" type="tns:StatusType" />
+      <xs:element name="timeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActivityType" nillable="true" type="tns:ActivityType" />
+  <xs:complexType name="ActivityLocationType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="signedForByNameField" nillable="true" type="xs:string" />
+      <xs:element name="transportFacilityField" nillable="true" type="tns:TransportFacilityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActivityLocationType" nillable="true" type="tns:ActivityLocationType" />
+  <xs:complexType name="TransportFacilityType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransportFacilityType" nillable="true" type="tns:TransportFacilityType" />
+  <xs:complexType name="ArrayOfAlternateTrackingInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlternateTrackingInfoType" nillable="true" type="tns:AlternateTrackingInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlternateTrackingInfoType" nillable="true" type="tns:ArrayOfAlternateTrackingInfoType" />
+  <xs:complexType name="AlternateTrackingInfoType">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlternateTrackingInfoType" nillable="true" type="tns:AlternateTrackingInfoType" />
+  <xs:complexType name="NextScheduleActivityType">
+    <xs:sequence>
+      <xs:element name="dateField" nillable="true" type="xs:string" />
+      <xs:element name="timeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NextScheduleActivityType" nillable="true" type="tns:NextScheduleActivityType" />
+  <xs:complexType name="StatusType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusType" nillable="true" type="tns:StatusType" />
+  <xs:complexType name="ArrayOfMessageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageType" nillable="true" type="tns:MessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageType" nillable="true" type="tns:ArrayOfMessageType" />
+  <xs:complexType name="MessageType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageType" nillable="true" type="tns:MessageType" />
+  <xs:complexType name="ArrayOfPackageAddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageAddressType" nillable="true" type="tns:PackageAddressType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageAddressType" nillable="true" type="tns:ArrayOfPackageAddressType" />
+  <xs:complexType name="PackageAddressType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="typeField" nillable="true" type="tns:CommonCodeDescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageAddressType" nillable="true" type="tns:PackageAddressType" />
+  <xs:complexType name="ArrayOfServiceOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceOptionType" nillable="true" type="tns:ServiceOptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceOptionType" nillable="true" type="tns:ArrayOfServiceOptionType" />
+  <xs:complexType name="ServiceOptionType">
+    <xs:sequence>
+      <xs:element name="additionalAttributeField" nillable="true" type="tns:ArrayOfAdditionalCodeDescriptionValueType" />
+      <xs:element name="typeField" nillable="true" type="tns:CommonCodeDescriptionType" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceOptionType" nillable="true" type="tns:ServiceOptionType" />
+  <xs:complexType name="WeightType">
+    <xs:sequence>
+      <xs:element name="unitOfMeasurementField" nillable="true" type="tns:UnitOfMeasurementType" />
+      <xs:element name="weightField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeightType" nillable="true" type="tns:WeightType" />
+  <xs:complexType name="UnitOfMeasurementType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnitOfMeasurementType" nillable="true" type="tns:UnitOfMeasurementType" />
+  <xs:complexType name="RedirectType">
+    <xs:sequence>
+      <xs:element name="companyNameField" nillable="true" type="xs:string" />
+      <xs:element name="locationIDField" nillable="true" type="xs:string" />
+      <xs:element name="pickupDateField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RedirectType" nillable="true" type="tns:RedirectType" />
+  <xs:complexType name="ArrayOfReferenceNumberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferenceNumberType" nillable="true" type="tns:ReferenceNumberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferenceNumberType" nillable="true" type="tns:ArrayOfReferenceNumberType" />
+  <xs:complexType name="ArrayOfShipmentReferenceNumberType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShipmentReferenceNumberType" nillable="true" type="tns:ShipmentReferenceNumberType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShipmentReferenceNumberType" nillable="true" type="tns:ArrayOfShipmentReferenceNumberType" />
+  <xs:complexType name="ShipmentReferenceNumberType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipmentReferenceNumberType" nillable="true" type="tns:ShipmentReferenceNumberType" />
+  <xs:complexType name="ArrayOfServiceCenterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceCenterType" nillable="true" type="tns:ServiceCenterType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceCenterType" nillable="true" type="tns:ArrayOfServiceCenterType" />
+  <xs:complexType name="ServiceCenterType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="tns:CommonCodeDescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceCenterType" nillable="true" type="tns:ServiceCenterType" />
+  <xs:complexType name="ServiceType">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceType" nillable="true" type="tns:ServiceType" />
+  <xs:complexType name="ArrayOfShipmentAddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShipmentAddressType" nillable="true" type="tns:ShipmentAddressType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShipmentAddressType" nillable="true" type="tns:ArrayOfShipmentAddressType" />
+  <xs:complexType name="ShipmentAddressType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="typeField" nillable="true" type="tns:CommonCodeDescriptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipmentAddressType" nillable="true" type="tns:ShipmentAddressType" />
+  <xs:complexType name="VolumeType">
+    <xs:sequence>
+      <xs:element name="unitOfMeasurementField" nillable="true" type="tns:UnitOfMeasurementType" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolumeType" nillable="true" type="tns:VolumeType" />
+</xs:schema>

@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UtilAPIService.FedexTrackService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UtilAPIService.FedexTrackService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49490/MailService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="TrackRequest">
+    <xs:sequence>
+      <xs:element name="clientDetailField" nillable="true" type="tns:ClientDetail" />
+      <xs:element name="processingOptionsField" nillable="true" type="tns:ArrayOfTrackRequestProcessingOptionType" />
+      <xs:element name="selectionDetailsField" nillable="true" type="tns:ArrayOfTrackSelectionDetail" />
+      <xs:element name="transactionDetailField" nillable="true" type="tns:TransactionDetail" />
+      <xs:element name="transactionTimeOutValueInMillisecondsField" nillable="true" type="xs:string" />
+      <xs:element name="versionField" nillable="true" type="tns:VersionId" />
+      <xs:element name="webAuthenticationDetailField" nillable="true" type="tns:WebAuthenticationDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackRequest" nillable="true" type="tns:TrackRequest" />
+  <xs:complexType name="ClientDetail">
+    <xs:sequence>
+      <xs:element name="accountNumberField" nillable="true" type="xs:string" />
+      <xs:element name="integratorIdField" nillable="true" type="xs:string" />
+      <xs:element name="localizationField" nillable="true" type="tns:Localization" />
+      <xs:element name="meterNumberField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientDetail" nillable="true" type="tns:ClientDetail" />
+  <xs:complexType name="Localization">
+    <xs:sequence>
+      <xs:element name="languageCodeField" nillable="true" type="xs:string" />
+      <xs:element name="localeCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Localization" nillable="true" type="tns:Localization" />
+  <xs:complexType name="ArrayOfTrackRequestProcessingOptionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackRequestProcessingOptionType" type="tns:TrackRequestProcessingOptionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackRequestProcessingOptionType" nillable="true" type="tns:ArrayOfTrackRequestProcessingOptionType" />
+  <xs:simpleType name="TrackRequestProcessingOptionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INCLUDE_DETAILED_SCANS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackRequestProcessingOptionType" nillable="true" type="tns:TrackRequestProcessingOptionType" />
+  <xs:complexType name="ArrayOfTrackSelectionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackSelectionDetail" nillable="true" type="tns:TrackSelectionDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackSelectionDetail" nillable="true" type="tns:ArrayOfTrackSelectionDetail" />
+  <xs:complexType name="TrackSelectionDetail">
+    <xs:sequence>
+      <xs:element name="carrierCodeField" type="tns:CarrierCodeType" />
+      <xs:element name="carrierCodeFieldSpecified" type="xs:boolean" />
+      <xs:element name="customerSpecifiedTimeOutValueInMillisecondsField" nillable="true" type="xs:string" />
+      <xs:element name="destinationField" nillable="true" type="tns:Address" />
+      <xs:element name="operatingCompanyField" type="tns:OperatingCompanyType" />
+      <xs:element name="operatingCompanyFieldSpecified" type="xs:boolean" />
+      <xs:element name="packageIdentifierField" nillable="true" type="tns:TrackPackageIdentifier" />
+      <xs:element name="pagingDetailField" nillable="true" type="tns:PagingDetail" />
+      <xs:element name="secureSpodAccountField" nillable="true" type="xs:string" />
+      <xs:element name="shipDateRangeBeginField" type="xs:dateTime" />
+      <xs:element name="shipDateRangeBeginFieldSpecified" type="xs:boolean" />
+      <xs:element name="shipDateRangeEndField" type="xs:dateTime" />
+      <xs:element name="shipDateRangeEndFieldSpecified" type="xs:boolean" />
+      <xs:element name="shipmentAccountNumberField" nillable="true" type="xs:string" />
+      <xs:element name="trackingNumberUniqueIdentifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackSelectionDetail" nillable="true" type="tns:TrackSelectionDetail" />
+  <xs:simpleType name="CarrierCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FDXC" />
+      <xs:enumeration value="FDXE" />
+      <xs:enumeration value="FDXG" />
+      <xs:enumeration value="FXCC" />
+      <xs:enumeration value="FXFR" />
+      <xs:enumeration value="FXSP" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CarrierCodeType" nillable="true" type="tns:CarrierCodeType" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element name="cityField" nillable="true" type="xs:string" />
+      <xs:element name="countryCodeField" nillable="true" type="xs:string" />
+      <xs:element name="countryNameField" nillable="true" type="xs:string" />
+      <xs:element name="postalCodeField" nillable="true" type="xs:string" />
+      <xs:element name="residentialField" type="xs:boolean" />
+      <xs:element name="residentialFieldSpecified" type="xs:boolean" />
+      <xs:element name="stateOrProvinceCodeField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="streetLinesField" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element name="urbanizationCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:simpleType name="OperatingCompanyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FEDEX_CARGO" />
+      <xs:enumeration value="FEDEX_CORPORATE_SERVICES" />
+      <xs:enumeration value="FEDEX_CORPORATION" />
+      <xs:enumeration value="FEDEX_CUSTOMER_INFORMATION_SYSTEMS" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL" />
+      <xs:enumeration value="FEDEX_EXPRESS" />
+      <xs:enumeration value="FEDEX_FREIGHT" />
+      <xs:enumeration value="FEDEX_GROUND" />
+      <xs:enumeration value="FEDEX_KINKOS" />
+      <xs:enumeration value="FEDEX_OFFICE" />
+      <xs:enumeration value="FEDEX_SERVICES" />
+      <xs:enumeration value="FEDEX_TRADE_NETWORKS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OperatingCompanyType" nillable="true" type="tns:OperatingCompanyType" />
+  <xs:complexType name="TrackPackageIdentifier">
+    <xs:sequence>
+      <xs:element name="typeField" type="tns:TrackIdentifierType" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackPackageIdentifier" nillable="true" type="tns:TrackPackageIdentifier" />
+  <xs:simpleType name="TrackIdentifierType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BILL_OF_LADING" />
+      <xs:enumeration value="COD_RETURN_TRACKING_NUMBER" />
+      <xs:enumeration value="CUSTOMER_AUTHORIZATION_NUMBER" />
+      <xs:enumeration value="CUSTOMER_REFERENCE" />
+      <xs:enumeration value="DEPARTMENT" />
+      <xs:enumeration value="DOCUMENT_AIRWAY_BILL" />
+      <xs:enumeration value="FREE_FORM_REFERENCE" />
+      <xs:enumeration value="GROUND_INTERNATIONAL" />
+      <xs:enumeration value="GROUND_SHIPMENT_ID" />
+      <xs:enumeration value="GROUP_MPS" />
+      <xs:enumeration value="INVOICE" />
+      <xs:enumeration value="JOB_GLOBAL_TRACKING_NUMBER" />
+      <xs:enumeration value="ORDER_GLOBAL_TRACKING_NUMBER" />
+      <xs:enumeration value="ORDER_TO_PAY_NUMBER" />
+      <xs:enumeration value="OUTBOUND_LINK_TO_RETURN" />
+      <xs:enumeration value="PARTNER_CARRIER_NUMBER" />
+      <xs:enumeration value="PART_NUMBER" />
+      <xs:enumeration value="PURCHASE_ORDER" />
+      <xs:enumeration value="REROUTE_TRACKING_NUMBER" />
+      <xs:enumeration value="RETURNED_TO_SHIPPER_TRACKING_NUMBER" />
+      <xs:enumeration value="RETURN_MATERIALS_AUTHORIZATION" />
+      <xs:enumeration value="SHIPPER_REFERENCE" />
+      <xs:enumeration value="STANDARD_MPS" />
+      <xs:enumeration value="TRACKING_NUMBER_OR_DOORTAG" />
+      <xs:enumeration value="TRANSPORTATION_CONTROL_NUMBER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackIdentifierType" nillable="true" type="tns:TrackIdentifierType" />
+  <xs:complexType name="PagingDetail">
+    <xs:sequence>
+      <xs:element name="numberOfResultsPerPageField" nillable="true" type="xs:string" />
+      <xs:element name="pagingTokenField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingDetail" nillable="true" type="tns:PagingDetail" />
+  <xs:complexType name="TransactionDetail">
+    <xs:sequence>
+      <xs:element name="customerTransactionIdField" nillable="true" type="xs:string" />
+      <xs:element name="localizationField" nillable="true" type="tns:Localization" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionDetail" nillable="true" type="tns:TransactionDetail" />
+  <xs:complexType name="VersionId">
+    <xs:sequence>
+      <xs:element name="intermediateField" type="xs:int" />
+      <xs:element name="majorField" type="xs:int" />
+      <xs:element name="minorField" type="xs:int" />
+      <xs:element name="serviceIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VersionId" nillable="true" type="tns:VersionId" />
+  <xs:complexType name="WebAuthenticationDetail">
+    <xs:sequence>
+      <xs:element name="parentCredentialField" nillable="true" type="tns:WebAuthenticationCredential" />
+      <xs:element name="userCredentialField" nillable="true" type="tns:WebAuthenticationCredential" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebAuthenticationDetail" nillable="true" type="tns:WebAuthenticationDetail" />
+  <xs:complexType name="WebAuthenticationCredential">
+    <xs:sequence>
+      <xs:element name="keyField" nillable="true" type="xs:string" />
+      <xs:element name="passwordField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebAuthenticationCredential" nillable="true" type="tns:WebAuthenticationCredential" />
+  <xs:complexType name="TrackReply">
+    <xs:sequence>
+      <xs:element name="completedTrackDetailsField" nillable="true" type="tns:ArrayOfCompletedTrackDetail" />
+      <xs:element name="highestSeverityField" type="tns:NotificationSeverityType" />
+      <xs:element name="notificationsField" nillable="true" type="tns:ArrayOfNotification" />
+      <xs:element name="transactionDetailField" nillable="true" type="tns:TransactionDetail" />
+      <xs:element name="versionField" nillable="true" type="tns:VersionId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackReply" nillable="true" type="tns:TrackReply" />
+  <xs:complexType name="ArrayOfCompletedTrackDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompletedTrackDetail" nillable="true" type="tns:CompletedTrackDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompletedTrackDetail" nillable="true" type="tns:ArrayOfCompletedTrackDetail" />
+  <xs:complexType name="CompletedTrackDetail">
+    <xs:sequence>
+      <xs:element name="duplicateWaybillField" type="xs:boolean" />
+      <xs:element name="duplicateWaybillFieldSpecified" type="xs:boolean" />
+      <xs:element name="highestSeverityField" type="tns:NotificationSeverityType" />
+      <xs:element name="highestSeverityFieldSpecified" type="xs:boolean" />
+      <xs:element name="moreDataField" type="xs:boolean" />
+      <xs:element name="moreDataFieldSpecified" type="xs:boolean" />
+      <xs:element name="notificationsField" nillable="true" type="tns:ArrayOfNotification" />
+      <xs:element name="pagingTokenField" nillable="true" type="xs:string" />
+      <xs:element name="trackDetailsCountField" nillable="true" type="xs:string" />
+      <xs:element name="trackDetailsField" nillable="true" type="tns:ArrayOfTrackDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompletedTrackDetail" nillable="true" type="tns:CompletedTrackDetail" />
+  <xs:simpleType name="NotificationSeverityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ERROR" />
+      <xs:enumeration value="FAILURE" />
+      <xs:enumeration value="NOTE" />
+      <xs:enumeration value="SUCCESS" />
+      <xs:enumeration value="WARNING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationSeverityType" nillable="true" type="tns:NotificationSeverityType" />
+  <xs:complexType name="ArrayOfNotification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Notification" nillable="true" type="tns:Notification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotification" nillable="true" type="tns:ArrayOfNotification" />
+  <xs:complexType name="Notification">
+    <xs:sequence>
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="localizedMessageField" nillable="true" type="xs:string" />
+      <xs:element name="messageField" nillable="true" type="xs:string" />
+      <xs:element name="messageParametersField" nillable="true" type="tns:ArrayOfNotificationParameter" />
+      <xs:element name="severityField" type="tns:NotificationSeverityType" />
+      <xs:element name="sourceField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Notification" nillable="true" type="tns:Notification" />
+  <xs:complexType name="ArrayOfNotificationParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotificationParameter" nillable="true" type="tns:NotificationParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotificationParameter" nillable="true" type="tns:ArrayOfNotificationParameter" />
+  <xs:complexType name="NotificationParameter">
+    <xs:sequence>
+      <xs:element name="idField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotificationParameter" nillable="true" type="tns:NotificationParameter" />
+  <xs:complexType name="ArrayOfTrackDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackDetail" nillable="true" type="tns:TrackDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackDetail" nillable="true" type="tns:ArrayOfTrackDetail" />
+  <xs:complexType name="TrackDetail">
+    <xs:sequence>
+      <xs:element name="actualDeliveryAddressField" nillable="true" type="tns:Address" />
+      <xs:element name="actualDeliveryTimestampField" type="xs:dateTime" />
+      <xs:element name="actualDeliveryTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="advanceNotificationDetailField" nillable="true" type="tns:TrackAdvanceNotificationDetail" />
+      <xs:element name="appointmentDeliveryTimestampField" type="xs:dateTime" />
+      <xs:element name="appointmentDeliveryTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="attributesField" nillable="true" type="tns:ArrayOfTrackDetailAttributeType" />
+      <xs:element name="availableImagesField" nillable="true" type="tns:ArrayOfAvailableImageType" />
+      <xs:element name="barcodeField" nillable="true" type="tns:StringBarcode" />
+      <xs:element name="carrierCodeField" type="tns:CarrierCodeType" />
+      <xs:element name="carrierCodeFieldSpecified" type="xs:boolean" />
+      <xs:element name="cartageAgentCompanyNameField" nillable="true" type="xs:string" />
+      <xs:element name="chargesField" nillable="true" type="tns:ArrayOfTrackChargeDetail" />
+      <xs:element name="clearanceLocationCodeField" nillable="true" type="xs:string" />
+      <xs:element name="commitmentTimestampField" type="xs:dateTime" />
+      <xs:element name="commitmentTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="commoditiesField" nillable="true" type="tns:ArrayOfCommodity" />
+      <xs:element name="customerExceptionRequestsField" nillable="true" type="tns:ArrayOfCustomerExceptionRequestDetail" />
+      <xs:element name="customsOptionDetailsField" nillable="true" type="tns:ArrayOfCustomsOptionDetail" />
+      <xs:element name="deliveryAttemptsField" nillable="true" type="xs:string" />
+      <xs:element name="deliveryLocationDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="deliveryLocationTypeField" type="tns:TrackDeliveryLocationType" />
+      <xs:element name="deliveryLocationTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="deliveryOptionEligibilityDetailsField" nillable="true" type="tns:ArrayOfDeliveryOptionEligibilityDetail" />
+      <xs:element name="deliverySignatureNameField" nillable="true" type="xs:string" />
+      <xs:element name="destinationAddressField" nillable="true" type="tns:Address" />
+      <xs:element name="destinationLocationAddressField" nillable="true" type="tns:Address" />
+      <xs:element name="destinationLocationTimeZoneOffsetField" nillable="true" type="xs:string" />
+      <xs:element name="destinationLocationTypeField" type="tns:FedExLocationType" />
+      <xs:element name="destinationLocationTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="destinationServiceAreaDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="destinationServiceAreaField" nillable="true" type="xs:string" />
+      <xs:element name="destinationStationIdField" nillable="true" type="xs:string" />
+      <xs:element name="distanceToDestinationField" nillable="true" type="tns:Distance" />
+      <xs:element name="estimatedDeliveryTimestampField" type="xs:dateTime" />
+      <xs:element name="estimatedDeliveryTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="estimatedPickupTimestampField" type="xs:dateTime" />
+      <xs:element name="estimatedPickupTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="eventsField" nillable="true" type="tns:ArrayOfTrackEvent" />
+      <xs:element name="formIdField" nillable="true" type="xs:string" />
+      <xs:element name="holdAtLocationAddressField" nillable="true" type="tns:Address" />
+      <xs:element name="holdAtLocationContactField" nillable="true" type="tns:Contact" />
+      <xs:element name="lastUpdatedDestinationAddressField" nillable="true" type="tns:Address" />
+      <xs:element name="nickNameField" nillable="true" type="xs:string" />
+      <xs:element name="notesField" nillable="true" type="xs:string" />
+      <xs:element name="notificationEventsAvailableField" nillable="true" type="tns:ArrayOfEMailNotificationEventType" />
+      <xs:element name="notificationField" nillable="true" type="tns:Notification" />
+      <xs:element name="officeOrderDeliveryMethodField" type="tns:OfficeOrderDeliveryMethodType" />
+      <xs:element name="officeOrderDeliveryMethodFieldSpecified" type="xs:boolean" />
+      <xs:element name="operatingCompanyField" type="tns:OperatingCompanyType" />
+      <xs:element name="operatingCompanyFieldSpecified" type="xs:boolean" />
+      <xs:element name="operatingCompanyOrCarrierDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="originLocationAddressField" nillable="true" type="tns:Address" />
+      <xs:element name="originStationIdField" nillable="true" type="xs:string" />
+      <xs:element name="otherIdentifiersField" nillable="true" type="tns:ArrayOfTrackOtherIdentifierDetail" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="packageContentsField" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element name="packageCountField" nillable="true" type="xs:string" />
+      <xs:element name="packageDimensionalWeightField" nillable="true" type="tns:Weight" />
+      <xs:element name="packageDimensionsField" nillable="true" type="tns:Dimensions" />
+      <xs:element name="packageSequenceNumberField" nillable="true" type="xs:string" />
+      <xs:element name="packageWeightField" nillable="true" type="tns:Weight" />
+      <xs:element name="packagingField" nillable="true" type="xs:string" />
+      <xs:element name="packagingTypeField" type="tns:PackagingType" />
+      <xs:element name="packagingTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="pieceCountVerificationDetailsField" nillable="true" type="tns:ArrayOfPieceCountVerificationDetail" />
+      <xs:element name="possessionStatusField" type="tns:TrackPossessionStatusType" />
+      <xs:element name="possessionStatusFieldSpecified" type="xs:boolean" />
+      <xs:element name="productionLocationContactAndAddressField" nillable="true" type="tns:ContactAndAddress" />
+      <xs:element name="recipientField" nillable="true" type="tns:Contact" />
+      <xs:element name="reconciliationField" nillable="true" type="tns:TrackReconciliation" />
+      <xs:element name="returnDetailField" nillable="true" type="tns:TrackReturnDetail" />
+      <xs:element name="serviceCommitMessageField" nillable="true" type="xs:string" />
+      <xs:element name="serviceField" nillable="true" type="tns:TrackServiceDescriptionDetail" />
+      <xs:element name="shipTimestampField" type="xs:dateTime" />
+      <xs:element name="shipTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="shipmentContentsField" nillable="true" type="tns:ArrayOfContentRecord" />
+      <xs:element name="shipmentWeightField" nillable="true" type="tns:Weight" />
+      <xs:element name="shipperAddressField" nillable="true" type="tns:Address" />
+      <xs:element name="shipperField" nillable="true" type="tns:Contact" />
+      <xs:element name="signatureField" nillable="true" type="tns:SignatureImageDetail" />
+      <xs:element name="specialHandlingsField" nillable="true" type="tns:ArrayOfTrackSpecialHandling" />
+      <xs:element name="specialInstructionsField" nillable="true" type="tns:ArrayOfTrackSpecialInstruction" />
+      <xs:element name="splitShipmentPartsField" nillable="true" type="tns:ArrayOfTrackSplitShipmentPart" />
+      <xs:element name="statusDetailField" nillable="true" type="tns:TrackStatusDetail" />
+      <xs:element name="totalTransitDistanceField" nillable="true" type="tns:Distance" />
+      <xs:element name="totalUniqueAddressCountInConsolidationField" nillable="true" type="xs:string" />
+      <xs:element name="trackingNumberField" nillable="true" type="xs:string" />
+      <xs:element name="trackingNumberUniqueIdentifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackDetail" nillable="true" type="tns:TrackDetail" />
+  <xs:complexType name="TrackAdvanceNotificationDetail">
+    <xs:sequence>
+      <xs:element name="estimatedTimeOfArrivalField" type="xs:dateTime" />
+      <xs:element name="estimatedTimeOfArrivalFieldSpecified" type="xs:boolean" />
+      <xs:element name="reasonField" nillable="true" type="xs:string" />
+      <xs:element name="statusDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="statusField" type="tns:TrackAdvanceNotificationStatusType" />
+      <xs:element name="statusFieldSpecified" type="xs:boolean" />
+      <xs:element name="statusTimeField" type="xs:dateTime" />
+      <xs:element name="statusTimeFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackAdvanceNotificationDetail" nillable="true" type="tns:TrackAdvanceNotificationDetail" />
+  <xs:simpleType name="TrackAdvanceNotificationStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BACK_ON_TRACK" />
+      <xs:enumeration value="FAIL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackAdvanceNotificationStatusType" nillable="true" type="tns:TrackAdvanceNotificationStatusType" />
+  <xs:complexType name="ArrayOfTrackDetailAttributeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackDetailAttributeType" type="tns:TrackDetailAttributeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackDetailAttributeType" nillable="true" type="tns:ArrayOfTrackDetailAttributeType" />
+  <xs:simpleType name="TrackDetailAttributeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INCLUDED_IN_WATCHLIST" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackDetailAttributeType" nillable="true" type="tns:TrackDetailAttributeType" />
+  <xs:complexType name="ArrayOfAvailableImageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AvailableImageType" type="tns:AvailableImageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAvailableImageType" nillable="true" type="tns:ArrayOfAvailableImageType" />
+  <xs:simpleType name="AvailableImageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BILL_OF_LADING" />
+      <xs:enumeration value="SIGNATURE_PROOF_OF_DELIVERY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AvailableImageType" nillable="true" type="tns:AvailableImageType" />
+  <xs:complexType name="StringBarcode">
+    <xs:sequence>
+      <xs:element name="typeField" type="tns:StringBarcodeType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StringBarcode" nillable="true" type="tns:StringBarcode" />
+  <xs:simpleType name="StringBarcodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADDRESS" />
+      <xs:enumeration value="ASTRA" />
+      <xs:enumeration value="FEDEX_1D" />
+      <xs:enumeration value="GROUND" />
+      <xs:enumeration value="POSTAL" />
+      <xs:enumeration value="USPS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StringBarcodeType" nillable="true" type="tns:StringBarcodeType" />
+  <xs:complexType name="ArrayOfTrackChargeDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackChargeDetail" nillable="true" type="tns:TrackChargeDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackChargeDetail" nillable="true" type="tns:ArrayOfTrackChargeDetail" />
+  <xs:complexType name="TrackChargeDetail">
+    <xs:sequence>
+      <xs:element name="chargeAmountField" nillable="true" type="tns:Money" />
+      <xs:element name="typeField" type="tns:TrackChargeDetailType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackChargeDetail" nillable="true" type="tns:TrackChargeDetail" />
+  <xs:complexType name="Money">
+    <xs:sequence>
+      <xs:element name="amountField" type="xs:decimal" />
+      <xs:element name="amountFieldSpecified" type="xs:boolean" />
+      <xs:element name="currencyField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Money" nillable="true" type="tns:Money" />
+  <xs:simpleType name="TrackChargeDetailType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ORIGINAL_CHARGES" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackChargeDetailType" nillable="true" type="tns:TrackChargeDetailType" />
+  <xs:complexType name="ArrayOfCommodity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Commodity" nillable="true" type="tns:Commodity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommodity" nillable="true" type="tns:ArrayOfCommodity" />
+  <xs:complexType name="Commodity">
+    <xs:sequence>
+      <xs:element name="additionalMeasuresField" nillable="true" type="tns:ArrayOfMeasure" />
+      <xs:element name="cIMarksAndNumbersField" nillable="true" type="xs:string" />
+      <xs:element name="commodityIdField" nillable="true" type="xs:string" />
+      <xs:element name="countryOfManufactureField" nillable="true" type="xs:string" />
+      <xs:element name="customsValueField" nillable="true" type="tns:Money" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="exciseConditionsField" nillable="true" type="tns:ArrayOfEdtExciseCondition" />
+      <xs:element name="exportLicenseExpirationDateField" type="xs:dateTime" />
+      <xs:element name="exportLicenseExpirationDateFieldSpecified" type="xs:boolean" />
+      <xs:element name="exportLicenseNumberField" nillable="true" type="xs:string" />
+      <xs:element name="harmonizedCodeField" nillable="true" type="xs:string" />
+      <xs:element name="naftaDetailField" nillable="true" type="tns:NaftaCommodityDetail" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="numberOfPiecesField" nillable="true" type="xs:string" />
+      <xs:element name="partNumberField" nillable="true" type="xs:string" />
+      <xs:element name="quantityField" type="xs:decimal" />
+      <xs:element name="quantityFieldSpecified" type="xs:boolean" />
+      <xs:element name="quantityUnitsField" nillable="true" type="xs:string" />
+      <xs:element name="unitPriceField" nillable="true" type="tns:Money" />
+      <xs:element name="weightField" nillable="true" type="tns:Weight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Commodity" nillable="true" type="tns:Commodity" />
+  <xs:complexType name="ArrayOfMeasure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Measure" nillable="true" type="tns:Measure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeasure" nillable="true" type="tns:ArrayOfMeasure" />
+  <xs:complexType name="Measure">
+    <xs:sequence>
+      <xs:element name="quantityField" type="xs:decimal" />
+      <xs:element name="quantityFieldSpecified" type="xs:boolean" />
+      <xs:element name="unitsField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Measure" nillable="true" type="tns:Measure" />
+  <xs:complexType name="ArrayOfEdtExciseCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EdtExciseCondition" nillable="true" type="tns:EdtExciseCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEdtExciseCondition" nillable="true" type="tns:ArrayOfEdtExciseCondition" />
+  <xs:complexType name="EdtExciseCondition">
+    <xs:sequence>
+      <xs:element name="categoryField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EdtExciseCondition" nillable="true" type="tns:EdtExciseCondition" />
+  <xs:complexType name="NaftaCommodityDetail">
+    <xs:sequence>
+      <xs:element name="netCostDateRangeField" nillable="true" type="tns:DateRange" />
+      <xs:element name="netCostMethodField" type="tns:NaftaNetCostMethodCode" />
+      <xs:element name="netCostMethodFieldSpecified" type="xs:boolean" />
+      <xs:element name="preferenceCriterionField" type="tns:NaftaPreferenceCriterionCode" />
+      <xs:element name="preferenceCriterionFieldSpecified" type="xs:boolean" />
+      <xs:element name="producerDeterminationField" type="tns:NaftaProducerDeterminationCode" />
+      <xs:element name="producerDeterminationFieldSpecified" type="xs:boolean" />
+      <xs:element name="producerIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NaftaCommodityDetail" nillable="true" type="tns:NaftaCommodityDetail" />
+  <xs:complexType name="DateRange">
+    <xs:sequence>
+      <xs:element name="beginsField" type="xs:dateTime" />
+      <xs:element name="beginsFieldSpecified" type="xs:boolean" />
+      <xs:element name="endsField" type="xs:dateTime" />
+      <xs:element name="endsFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DateRange" nillable="true" type="tns:DateRange" />
+  <xs:simpleType name="NaftaNetCostMethodCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NC" />
+      <xs:enumeration value="NO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NaftaNetCostMethodCode" nillable="true" type="tns:NaftaNetCostMethodCode" />
+  <xs:simpleType name="NaftaPreferenceCriterionCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A" />
+      <xs:enumeration value="B" />
+      <xs:enumeration value="C" />
+      <xs:enumeration value="D" />
+      <xs:enumeration value="E" />
+      <xs:enumeration value="F" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NaftaPreferenceCriterionCode" nillable="true" type="tns:NaftaPreferenceCriterionCode" />
+  <xs:simpleType name="NaftaProducerDeterminationCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NO_1" />
+      <xs:enumeration value="NO_2" />
+      <xs:enumeration value="NO_3" />
+      <xs:enumeration value="YES" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NaftaProducerDeterminationCode" nillable="true" type="tns:NaftaProducerDeterminationCode" />
+  <xs:complexType name="Weight">
+    <xs:sequence>
+      <xs:element name="unitsField" type="tns:WeightUnits" />
+      <xs:element name="unitsFieldSpecified" type="xs:boolean" />
+      <xs:element name="valueField" type="xs:decimal" />
+      <xs:element name="valueFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Weight" nillable="true" type="tns:Weight" />
+  <xs:simpleType name="WeightUnits">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KG" />
+      <xs:enumeration value="LB" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WeightUnits" nillable="true" type="tns:WeightUnits" />
+  <xs:complexType name="ArrayOfCustomerExceptionRequestDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerExceptionRequestDetail" nillable="true" type="tns:CustomerExceptionRequestDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerExceptionRequestDetail" nillable="true" type="tns:ArrayOfCustomerExceptionRequestDetail" />
+  <xs:complexType name="CustomerExceptionRequestDetail">
+    <xs:sequence>
+      <xs:element name="createTimeField" type="xs:dateTime" />
+      <xs:element name="createTimeFieldSpecified" type="xs:boolean" />
+      <xs:element name="idField" nillable="true" type="xs:string" />
+      <xs:element name="statusCodeField" nillable="true" type="xs:string" />
+      <xs:element name="statusDescriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerExceptionRequestDetail" nillable="true" type="tns:CustomerExceptionRequestDetail" />
+  <xs:complexType name="ArrayOfCustomsOptionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomsOptionDetail" nillable="true" type="tns:CustomsOptionDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomsOptionDetail" nillable="true" type="tns:ArrayOfCustomsOptionDetail" />
+  <xs:complexType name="CustomsOptionDetail">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" type="tns:CustomsOptionType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomsOptionDetail" nillable="true" type="tns:CustomsOptionDetail" />
+  <xs:simpleType name="CustomsOptionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COURTESY_RETURN_LABEL" />
+      <xs:enumeration value="EXHIBITION_TRADE_SHOW" />
+      <xs:enumeration value="FAULTY_ITEM" />
+      <xs:enumeration value="FOLLOWING_REPAIR" />
+      <xs:enumeration value="FOR_REPAIR" />
+      <xs:enumeration value="ITEM_FOR_LOAN" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="REJECTED" />
+      <xs:enumeration value="REPLACEMENT" />
+      <xs:enumeration value="TRIAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CustomsOptionType" nillable="true" type="tns:CustomsOptionType" />
+  <xs:simpleType name="TrackDeliveryLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="APARTMENT_OFFICE" />
+      <xs:enumeration value="FEDEX_LOCATION" />
+      <xs:enumeration value="GATE_HOUSE" />
+      <xs:enumeration value="GUARD_OR_SECURITY_STATION" />
+      <xs:enumeration value="IN_BOND_OR_CAGE" />
+      <xs:enumeration value="LEASING_OFFICE" />
+      <xs:enumeration value="MAILROOM" />
+      <xs:enumeration value="MAIN_OFFICE" />
+      <xs:enumeration value="MANAGER_OFFICE" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="PHARMACY" />
+      <xs:enumeration value="RECEPTIONIST_OR_FRONT_DESK" />
+      <xs:enumeration value="RENTAL_OFFICE" />
+      <xs:enumeration value="RESIDENCE" />
+      <xs:enumeration value="SHIPPING_RECEIVING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackDeliveryLocationType" nillable="true" type="tns:TrackDeliveryLocationType" />
+  <xs:complexType name="ArrayOfDeliveryOptionEligibilityDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryOptionEligibilityDetail" nillable="true" type="tns:DeliveryOptionEligibilityDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryOptionEligibilityDetail" nillable="true" type="tns:ArrayOfDeliveryOptionEligibilityDetail" />
+  <xs:complexType name="DeliveryOptionEligibilityDetail">
+    <xs:sequence>
+      <xs:element name="eligibilityField" type="tns:EligibilityType" />
+      <xs:element name="eligibilityFieldSpecified" type="xs:boolean" />
+      <xs:element name="optionField" type="tns:DeliveryOptionType" />
+      <xs:element name="optionFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliveryOptionEligibilityDetail" nillable="true" type="tns:DeliveryOptionEligibilityDetail" />
+  <xs:simpleType name="EligibilityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ELIGIBLE" />
+      <xs:enumeration value="INELIGIBLE" />
+      <xs:enumeration value="POSSIBLY_ELIGIBLE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EligibilityType" nillable="true" type="tns:EligibilityType" />
+  <xs:simpleType name="DeliveryOptionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INDIRECT_SIGNATURE_RELEASE" />
+      <xs:enumeration value="REDIRECT_TO_HOLD_AT_LOCATION" />
+      <xs:enumeration value="REROUTE" />
+      <xs:enumeration value="RESCHEDULE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DeliveryOptionType" nillable="true" type="tns:DeliveryOptionType" />
+  <xs:simpleType name="FedExLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FEDEX_AUTHORIZED_SHIP_CENTER" />
+      <xs:enumeration value="FEDEX_EXPRESS_STATION" />
+      <xs:enumeration value="FEDEX_FACILITY" />
+      <xs:enumeration value="FEDEX_FREIGHT_SERVICE_CENTER" />
+      <xs:enumeration value="FEDEX_GROUND_TERMINAL" />
+      <xs:enumeration value="FEDEX_HOME_DELIVERY_STATION" />
+      <xs:enumeration value="FEDEX_OFFICE" />
+      <xs:enumeration value="FEDEX_SELF_SERVICE_LOCATION" />
+      <xs:enumeration value="FEDEX_SHIPSITE" />
+      <xs:enumeration value="FEDEX_SMART_POST_HUB" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FedExLocationType" nillable="true" type="tns:FedExLocationType" />
+  <xs:complexType name="Distance">
+    <xs:sequence>
+      <xs:element name="unitsField" type="tns:DistanceUnits" />
+      <xs:element name="unitsFieldSpecified" type="xs:boolean" />
+      <xs:element name="valueField" type="xs:decimal" />
+      <xs:element name="valueFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Distance" nillable="true" type="tns:Distance" />
+  <xs:simpleType name="DistanceUnits">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KM" />
+      <xs:enumeration value="MI" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DistanceUnits" nillable="true" type="tns:DistanceUnits" />
+  <xs:complexType name="ArrayOfTrackEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackEvent" nillable="true" type="tns:TrackEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackEvent" nillable="true" type="tns:ArrayOfTrackEvent" />
+  <xs:complexType name="TrackEvent">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:Address" />
+      <xs:element name="arrivalLocationField" type="tns:ArrivalLocationType" />
+      <xs:element name="arrivalLocationFieldSpecified" type="xs:boolean" />
+      <xs:element name="eventDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="eventTypeField" nillable="true" type="xs:string" />
+      <xs:element name="stationIdField" nillable="true" type="xs:string" />
+      <xs:element name="statusExceptionCodeField" nillable="true" type="xs:string" />
+      <xs:element name="statusExceptionDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="timestampField" type="xs:dateTime" />
+      <xs:element name="timestampFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackEvent" nillable="true" type="tns:TrackEvent" />
+  <xs:simpleType name="ArrivalLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AIRPORT" />
+      <xs:enumeration value="CUSTOMER" />
+      <xs:enumeration value="CUSTOMS_BROKER" />
+      <xs:enumeration value="DELIVERY_LOCATION" />
+      <xs:enumeration value="DESTINATION_AIRPORT" />
+      <xs:enumeration value="DESTINATION_FEDEX_FACILITY" />
+      <xs:enumeration value="DROP_BOX" />
+      <xs:enumeration value="ENROUTE" />
+      <xs:enumeration value="FEDEX_FACILITY" />
+      <xs:enumeration value="FEDEX_OFFICE_LOCATION" />
+      <xs:enumeration value="INTERLINE_CARRIER" />
+      <xs:enumeration value="NON_FEDEX_FACILITY" />
+      <xs:enumeration value="ORIGIN_AIRPORT" />
+      <xs:enumeration value="ORIGIN_FEDEX_FACILITY" />
+      <xs:enumeration value="PICKUP_LOCATION" />
+      <xs:enumeration value="PLANE" />
+      <xs:enumeration value="PORT_OF_ENTRY" />
+      <xs:enumeration value="SHIP_AND_GET_LOCATION" />
+      <xs:enumeration value="SORT_FACILITY" />
+      <xs:enumeration value="TURNPOINT" />
+      <xs:enumeration value="VEHICLE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ArrivalLocationType" nillable="true" type="tns:ArrivalLocationType" />
+  <xs:complexType name="Contact">
+    <xs:sequence>
+      <xs:element name="companyNameField" nillable="true" type="xs:string" />
+      <xs:element name="eMailAddressField" nillable="true" type="xs:string" />
+      <xs:element name="faxNumberField" nillable="true" type="xs:string" />
+      <xs:element name="pagerNumberField" nillable="true" type="xs:string" />
+      <xs:element name="personNameField" nillable="true" type="xs:string" />
+      <xs:element name="phoneExtensionField" nillable="true" type="xs:string" />
+      <xs:element name="phoneNumberField" nillable="true" type="xs:string" />
+      <xs:element name="titleField" nillable="true" type="xs:string" />
+      <xs:element name="tollFreePhoneNumberField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact" nillable="true" type="tns:Contact" />
+  <xs:complexType name="ArrayOfEMailNotificationEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EMailNotificationEventType" type="tns:EMailNotificationEventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEMailNotificationEventType" nillable="true" type="tns:ArrayOfEMailNotificationEventType" />
+  <xs:simpleType name="EMailNotificationEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ON_DELIVERY" />
+      <xs:enumeration value="ON_EXCEPTION" />
+      <xs:enumeration value="ON_SHIPMENT" />
+      <xs:enumeration value="ON_TENDER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EMailNotificationEventType" nillable="true" type="tns:EMailNotificationEventType" />
+  <xs:simpleType name="OfficeOrderDeliveryMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COURIER" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="PICKUP" />
+      <xs:enumeration value="SHIPMENT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OfficeOrderDeliveryMethodType" nillable="true" type="tns:OfficeOrderDeliveryMethodType" />
+  <xs:complexType name="ArrayOfTrackOtherIdentifierDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackOtherIdentifierDetail" nillable="true" type="tns:TrackOtherIdentifierDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackOtherIdentifierDetail" nillable="true" type="tns:ArrayOfTrackOtherIdentifierDetail" />
+  <xs:complexType name="TrackOtherIdentifierDetail">
+    <xs:sequence>
+      <xs:element name="carrierCodeField" type="tns:CarrierCodeType" />
+      <xs:element name="carrierCodeFieldSpecified" type="xs:boolean" />
+      <xs:element name="packageIdentifierField" nillable="true" type="tns:TrackPackageIdentifier" />
+      <xs:element name="trackingNumberUniqueIdentifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackOtherIdentifierDetail" nillable="true" type="tns:TrackOtherIdentifierDetail" />
+  <xs:complexType name="Dimensions">
+    <xs:sequence>
+      <xs:element name="heightField" nillable="true" type="xs:string" />
+      <xs:element name="lengthField" nillable="true" type="xs:string" />
+      <xs:element name="unitsField" type="tns:LinearUnits" />
+      <xs:element name="unitsFieldSpecified" type="xs:boolean" />
+      <xs:element name="widthField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Dimensions" nillable="true" type="tns:Dimensions" />
+  <xs:simpleType name="LinearUnits">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CM" />
+      <xs:enumeration value="IN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LinearUnits" nillable="true" type="tns:LinearUnits" />
+  <xs:simpleType name="PackagingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FEDEX_10KG_BOX" />
+      <xs:enumeration value="FEDEX_25KG_BOX" />
+      <xs:enumeration value="FEDEX_BOX" />
+      <xs:enumeration value="FEDEX_ENVELOPE" />
+      <xs:enumeration value="FEDEX_EXTRA_LARGE_BOX" />
+      <xs:enumeration value="FEDEX_LARGE_BOX" />
+      <xs:enumeration value="FEDEX_MEDIUM_BOX" />
+      <xs:enumeration value="FEDEX_PAK" />
+      <xs:enumeration value="FEDEX_SMALL_BOX" />
+      <xs:enumeration value="FEDEX_TUBE" />
+      <xs:enumeration value="YOUR_PACKAGING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PackagingType" nillable="true" type="tns:PackagingType" />
+  <xs:complexType name="ArrayOfPieceCountVerificationDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PieceCountVerificationDetail" nillable="true" type="tns:PieceCountVerificationDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPieceCountVerificationDetail" nillable="true" type="tns:ArrayOfPieceCountVerificationDetail" />
+  <xs:complexType name="PieceCountVerificationDetail">
+    <xs:sequence>
+      <xs:element name="countField" nillable="true" type="xs:string" />
+      <xs:element name="countLocationTypeField" type="tns:PieceCountLocationType" />
+      <xs:element name="countLocationTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PieceCountVerificationDetail" nillable="true" type="tns:PieceCountVerificationDetail" />
+  <xs:simpleType name="PieceCountLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DESTINATION" />
+      <xs:enumeration value="ORIGIN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PieceCountLocationType" nillable="true" type="tns:PieceCountLocationType" />
+  <xs:simpleType name="TrackPossessionStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BROKER" />
+      <xs:enumeration value="CARRIER" />
+      <xs:enumeration value="CUSTOMS" />
+      <xs:enumeration value="RECIPIENT" />
+      <xs:enumeration value="SHIPPER" />
+      <xs:enumeration value="SPLIT_STATUS" />
+      <xs:enumeration value="TRANSFER_PARTNER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackPossessionStatusType" nillable="true" type="tns:TrackPossessionStatusType" />
+  <xs:complexType name="ContactAndAddress">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:Address" />
+      <xs:element name="contactField" nillable="true" type="tns:Contact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactAndAddress" nillable="true" type="tns:ContactAndAddress" />
+  <xs:complexType name="TrackReconciliation">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="statusField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackReconciliation" nillable="true" type="tns:TrackReconciliation" />
+  <xs:complexType name="TrackReturnDetail">
+    <xs:sequence>
+      <xs:element name="authorizationNameField" nillable="true" type="xs:string" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="labelTypeField" type="tns:TrackReturnLabelType" />
+      <xs:element name="labelTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="movementStatusField" type="tns:TrackReturnMovementStatusType" />
+      <xs:element name="movementStatusFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackReturnDetail" nillable="true" type="tns:TrackReturnDetail" />
+  <xs:simpleType name="TrackReturnLabelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EMAIL" />
+      <xs:enumeration value="PRINT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackReturnLabelType" nillable="true" type="tns:TrackReturnLabelType" />
+  <xs:simpleType name="TrackReturnMovementStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MOVEMENT_OCCURRED" />
+      <xs:enumeration value="NO_MOVEMENT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackReturnMovementStatusType" nillable="true" type="tns:TrackReturnMovementStatusType" />
+  <xs:complexType name="TrackServiceDescriptionDetail">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="shortDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" type="tns:ServiceType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackServiceDescriptionDetail" nillable="true" type="tns:TrackServiceDescriptionDetail" />
+  <xs:simpleType name="ServiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EUROPE_FIRST_INTERNATIONAL_PRIORITY" />
+      <xs:enumeration value="FEDEX_1_DAY_FREIGHT" />
+      <xs:enumeration value="FEDEX_2_DAY" />
+      <xs:enumeration value="FEDEX_2_DAY_AM" />
+      <xs:enumeration value="FEDEX_2_DAY_FREIGHT" />
+      <xs:enumeration value="FEDEX_3_DAY_FREIGHT" />
+      <xs:enumeration value="FEDEX_CARGO_AIRPORT_TO_AIRPORT" />
+      <xs:enumeration value="FEDEX_CARGO_FREIGHT_FORWARDING" />
+      <xs:enumeration value="FEDEX_CARGO_INTERNATIONAL_EXPRESS_FREIGHT" />
+      <xs:enumeration value="FEDEX_CARGO_INTERNATIONAL_PREMIUM" />
+      <xs:enumeration value="FEDEX_CARGO_MAIL" />
+      <xs:enumeration value="FEDEX_CARGO_REGISTERED_MAIL" />
+      <xs:enumeration value="FEDEX_CARGO_SURFACE_MAIL" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_AIR_EXPEDITE" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_AIR_EXPEDITE_EXCLUSIVE_USE" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_AIR_EXPEDITE_NETWORK" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_CHARTER_AIR" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_POINT_TO_POINT" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_SURFACE_EXPEDITE" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_SURFACE_EXPEDITE_EXCLUSIVE_USE" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_TEMP_ASSURE_AIR" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_TEMP_ASSURE_VALIDATED_AIR" />
+      <xs:enumeration value="FEDEX_CUSTOM_CRITICAL_WHITE_GLOVE_SERVICES" />
+      <xs:enumeration value="FEDEX_DISTANCE_DEFERRED" />
+      <xs:enumeration value="FEDEX_EXPRESS_SAVER" />
+      <xs:enumeration value="FEDEX_FIRST_FREIGHT" />
+      <xs:enumeration value="FEDEX_FREIGHT_ECONOMY" />
+      <xs:enumeration value="FEDEX_FREIGHT_PRIORITY" />
+      <xs:enumeration value="FEDEX_GROUND" />
+      <xs:enumeration value="FEDEX_NEXT_DAY_AFTERNOON" />
+      <xs:enumeration value="FEDEX_NEXT_DAY_EARLY_MORNING" />
+      <xs:enumeration value="FEDEX_NEXT_DAY_END_OF_DAY" />
+      <xs:enumeration value="FEDEX_NEXT_DAY_FREIGHT" />
+      <xs:enumeration value="FEDEX_NEXT_DAY_MID_MORNING" />
+      <xs:enumeration value="FIRST_OVERNIGHT" />
+      <xs:enumeration value="GROUND_HOME_DELIVERY" />
+      <xs:enumeration value="INTERNATIONAL_DISTRIBUTION_FREIGHT" />
+      <xs:enumeration value="INTERNATIONAL_ECONOMY" />
+      <xs:enumeration value="INTERNATIONAL_ECONOMY_DISTRIBUTION" />
+      <xs:enumeration value="INTERNATIONAL_ECONOMY_FREIGHT" />
+      <xs:enumeration value="INTERNATIONAL_FIRST" />
+      <xs:enumeration value="INTERNATIONAL_PRIORITY" />
+      <xs:enumeration value="INTERNATIONAL_PRIORITY_DISTRIBUTION" />
+      <xs:enumeration value="INTERNATIONAL_PRIORITY_FREIGHT" />
+      <xs:enumeration value="PRIORITY_OVERNIGHT" />
+      <xs:enumeration value="SAME_DAY" />
+      <xs:enumeration value="SAME_DAY_CITY" />
+      <xs:enumeration value="SMART_POST" />
+      <xs:enumeration value="STANDARD_OVERNIGHT" />
+      <xs:enumeration value="TRANSBORDER_DISTRIBUTION_CONSOLIDATION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceType" nillable="true" type="tns:ServiceType" />
+  <xs:complexType name="ArrayOfContentRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContentRecord" nillable="true" type="tns:ContentRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContentRecord" nillable="true" type="tns:ArrayOfContentRecord" />
+  <xs:complexType name="ContentRecord">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="itemNumberField" nillable="true" type="xs:string" />
+      <xs:element name="partNumberField" nillable="true" type="xs:string" />
+      <xs:element name="receivedQuantityField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContentRecord" nillable="true" type="tns:ContentRecord" />
+  <xs:complexType name="SignatureImageDetail">
+    <xs:sequence>
+      <xs:element name="imageField" nillable="true" type="xs:base64Binary" />
+      <xs:element name="notificationsField" nillable="true" type="tns:ArrayOfNotification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignatureImageDetail" nillable="true" type="tns:SignatureImageDetail" />
+  <xs:complexType name="ArrayOfTrackSpecialHandling">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackSpecialHandling" nillable="true" type="tns:TrackSpecialHandling" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackSpecialHandling" nillable="true" type="tns:ArrayOfTrackSpecialHandling" />
+  <xs:complexType name="TrackSpecialHandling">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="paymentTypeField" type="tns:TrackPaymentType" />
+      <xs:element name="paymentTypeFieldSpecified" type="xs:boolean" />
+      <xs:element name="typeField" type="tns:TrackSpecialHandlingType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackSpecialHandling" nillable="true" type="tns:TrackSpecialHandling" />
+  <xs:simpleType name="TrackPaymentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CASH_OR_CHECK_AT_DESTINATION" />
+      <xs:enumeration value="CASH_OR_CHECK_AT_ORIGIN" />
+      <xs:enumeration value="CREDIT_CARD_AT_DESTINATION" />
+      <xs:enumeration value="CREDIT_CARD_AT_ORIGIN" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="RECIPIENT_ACCOUNT" />
+      <xs:enumeration value="SHIPPER_ACCOUNT" />
+      <xs:enumeration value="THIRD_PARTY_ACCOUNT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackPaymentType" nillable="true" type="tns:TrackPaymentType" />
+  <xs:simpleType name="TrackSpecialHandlingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCESSIBLE_DANGEROUS_GOODS" />
+      <xs:enumeration value="ADULT_SIGNATURE_OPTION" />
+      <xs:enumeration value="AIRBILL_AUTOMATION" />
+      <xs:enumeration value="AIRBILL_DELIVERY" />
+      <xs:enumeration value="ALCOHOL" />
+      <xs:enumeration value="AM_DELIVERY_GUARANTEE" />
+      <xs:enumeration value="APPOINTMENT_DELIVERY" />
+      <xs:enumeration value="BILL_RECIPIENT" />
+      <xs:enumeration value="BROKER_SELECT_OPTION" />
+      <xs:enumeration value="CALL_BEFORE_DELIVERY" />
+      <xs:enumeration value="CALL_TAG" />
+      <xs:enumeration value="CALL_TAG_DAMAGE" />
+      <xs:enumeration value="CHARGEABLE_CODE" />
+      <xs:enumeration value="COD" />
+      <xs:enumeration value="COLLECT" />
+      <xs:enumeration value="CONSOLIDATION" />
+      <xs:enumeration value="CONSOLIDATION_SMALLS_BAG" />
+      <xs:enumeration value="CURRENCY" />
+      <xs:enumeration value="CUT_FLOWERS" />
+      <xs:enumeration value="DATE_CERTAIN_DELIVERY" />
+      <xs:enumeration value="DELIVERY_ON_INVOICE_ACCEPTANCE" />
+      <xs:enumeration value="DELIVERY_REATTEMPT" />
+      <xs:enumeration value="DELIVERY_RECEIPT" />
+      <xs:enumeration value="DELIVER_WEEKDAY" />
+      <xs:enumeration value="DIRECT_SIGNATURE_OPTION" />
+      <xs:enumeration value="DOMESTIC" />
+      <xs:enumeration value="DO_NOT_BREAK_DOWN_PALLETS" />
+      <xs:enumeration value="DO_NOT_STACK_PALLETS" />
+      <xs:enumeration value="DRY_ICE" />
+      <xs:enumeration value="DRY_ICE_ADDED" />
+      <xs:enumeration value="EAST_COAST_SPECIAL" />
+      <xs:enumeration value="ELECTRONIC_COD" />
+      <xs:enumeration value="ELECTRONIC_SIGNATURE_SERVICE" />
+      <xs:enumeration value="EVENING_DELIVERY" />
+      <xs:enumeration value="EXCLUSIVE_USE" />
+      <xs:enumeration value="EXTENDED_DELIVERY" />
+      <xs:enumeration value="EXTENDED_PICKUP" />
+      <xs:enumeration value="EXTRA_LABOR" />
+      <xs:enumeration value="EXTREME_LENGTH" />
+      <xs:enumeration value="FOOD" />
+      <xs:enumeration value="FREIGHT_ON_VALUE_CARRIER_RISK" />
+      <xs:enumeration value="FREIGHT_ON_VALUE_OWN_RISK" />
+      <xs:enumeration value="FREIGHT_TO_COLLECT" />
+      <xs:enumeration value="FULLY_REGULATED_DANGEROUS_GOODS" />
+      <xs:enumeration value="GEL_PACKS_ADDED_OR_REPLACED" />
+      <xs:enumeration value="GROUND_SUPPORT_FOR_SMARTPOST" />
+      <xs:enumeration value="GUARANTEED_FUNDS" />
+      <xs:enumeration value="HAZMAT" />
+      <xs:enumeration value="HIGH_FLOOR" />
+      <xs:enumeration value="HOLD_AT_LOCATION" />
+      <xs:enumeration value="HOLIDAY_DELIVERY" />
+      <xs:enumeration value="INACCESSIBLE_DANGEROUS_GOODS" />
+      <xs:enumeration value="INDIRECT_SIGNATURE_OPTION" />
+      <xs:enumeration value="INSIDE_DELIVERY" />
+      <xs:enumeration value="INSIDE_PICKUP" />
+      <xs:enumeration value="INTERNATIONAL" />
+      <xs:enumeration value="INTERNATIONAL_CONTROLLED_EXPORT" />
+      <xs:enumeration value="INTERNATIONAL_MAIL_SERVICE" />
+      <xs:enumeration value="INTERNATIONAL_TRAFFIC_IN_ARMS_REGULATIONS" />
+      <xs:enumeration value="LIFTGATE" />
+      <xs:enumeration value="LIFTGATE_DELIVERY" />
+      <xs:enumeration value="LIFTGATE_PICKUP" />
+      <xs:enumeration value="LIMITED_ACCESS_DELIVERY" />
+      <xs:enumeration value="LIMITED_ACCESS_PICKUP" />
+      <xs:enumeration value="LIMITED_QUANTITIES_DANGEROUS_GOODS" />
+      <xs:enumeration value="MARKING_OR_TAGGING" />
+      <xs:enumeration value="NET_RETURN" />
+      <xs:enumeration value="NON_BUSINESS_TIME" />
+      <xs:enumeration value="NON_STANDARD_CONTAINER" />
+      <xs:enumeration value="NO_SIGNATURE_REQUIRED_SIGNATURE_OPTION" />
+      <xs:enumeration value="ORDER_NOTIFY" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="OTHER_REGULATED_MATERIAL_DOMESTIC" />
+      <xs:enumeration value="PACKAGE_RETURN_PROGRAM" />
+      <xs:enumeration value="PIECE_COUNT_VERIFICATION" />
+      <xs:enumeration value="POISON" />
+      <xs:enumeration value="PREPAID" />
+      <xs:enumeration value="PRIORITY_ALERT" />
+      <xs:enumeration value="PRIORITY_ALERT_PLUS" />
+      <xs:enumeration value="PROTECTION_FROM_FREEZING" />
+      <xs:enumeration value="RAIL_MODE" />
+      <xs:enumeration value="RECONSIGNMENT_CHARGES" />
+      <xs:enumeration value="REROUTE_CROSS_COUNTRY_DEFERRED" />
+      <xs:enumeration value="REROUTE_CROSS_COUNTRY_EXPEDITED" />
+      <xs:enumeration value="REROUTE_LOCAL" />
+      <xs:enumeration value="RESIDENTIAL_DELIVERY" />
+      <xs:enumeration value="RESIDENTIAL_PICKUP" />
+      <xs:enumeration value="RETURNS_CLEARANCE" />
+      <xs:enumeration value="RETURNS_CLEARANCE_SPECIAL_ROUTING_REQUIRED" />
+      <xs:enumeration value="RETURN_MANAGER" />
+      <xs:enumeration value="SATURDAY_DELIVERY" />
+      <xs:enumeration value="SHIPMENT_PLACED_IN_COLD_STORAGE" />
+      <xs:enumeration value="SINGLE_SHIPMENT" />
+      <xs:enumeration value="SMALL_QUANTITY_EXCEPTION" />
+      <xs:enumeration value="SORT_AND_SEGREGATE" />
+      <xs:enumeration value="SPECIAL_DELIVERY" />
+      <xs:enumeration value="SPECIAL_EQUIPMENT" />
+      <xs:enumeration value="STANDARD_GROUND_SERVICE" />
+      <xs:enumeration value="STORAGE" />
+      <xs:enumeration value="SUNDAY_DELIVERY" />
+      <xs:enumeration value="THIRD_PARTY_BILLING" />
+      <xs:enumeration value="THIRD_PARTY_CONSIGNEE" />
+      <xs:enumeration value="TOP_LOAD" />
+      <xs:enumeration value="WEEKEND_DELIVERY" />
+      <xs:enumeration value="WEEKEND_PICKUP" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackSpecialHandlingType" nillable="true" type="tns:TrackSpecialHandlingType" />
+  <xs:complexType name="ArrayOfTrackSpecialInstruction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackSpecialInstruction" nillable="true" type="tns:TrackSpecialInstruction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackSpecialInstruction" nillable="true" type="tns:ArrayOfTrackSpecialInstruction" />
+  <xs:complexType name="TrackSpecialInstruction">
+    <xs:sequence>
+      <xs:element name="deliveryOptionField" type="tns:TrackDeliveryOptionType" />
+      <xs:element name="deliveryOptionFieldSpecified" type="xs:boolean" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="originalEstimatedDeliveryTimestampField" type="xs:dateTime" />
+      <xs:element name="originalEstimatedDeliveryTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="originalRequestTimeField" type="xs:dateTime" />
+      <xs:element name="originalRequestTimeFieldSpecified" type="xs:boolean" />
+      <xs:element name="requestedAppointmentTimeField" nillable="true" type="tns:AppointmentDetail" />
+      <xs:element name="statusDetailField" nillable="true" type="tns:SpecialInstructionStatusDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackSpecialInstruction" nillable="true" type="tns:TrackSpecialInstruction" />
+  <xs:simpleType name="TrackDeliveryOptionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="APPOINTMENT" />
+      <xs:enumeration value="DATE_CERTAIN" />
+      <xs:enumeration value="ELECTRONIC_SIGNATURE_RELEASE" />
+      <xs:enumeration value="EVENING" />
+      <xs:enumeration value="REDIRECT_TO_HOLD_AT_LOCATION" />
+      <xs:enumeration value="REROUTE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrackDeliveryOptionType" nillable="true" type="tns:TrackDeliveryOptionType" />
+  <xs:complexType name="AppointmentDetail">
+    <xs:sequence>
+      <xs:element name="dateField" type="xs:dateTime" />
+      <xs:element name="dateFieldSpecified" type="xs:boolean" />
+      <xs:element name="windowDetailsField" nillable="true" type="tns:ArrayOfAppointmentTimeDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppointmentDetail" nillable="true" type="tns:AppointmentDetail" />
+  <xs:complexType name="ArrayOfAppointmentTimeDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppointmentTimeDetail" nillable="true" type="tns:AppointmentTimeDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppointmentTimeDetail" nillable="true" type="tns:ArrayOfAppointmentTimeDetail" />
+  <xs:complexType name="AppointmentTimeDetail">
+    <xs:sequence>
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" type="tns:AppointmentWindowType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+      <xs:element name="windowField" nillable="true" type="tns:LocalTimeRange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppointmentTimeDetail" nillable="true" type="tns:AppointmentTimeDetail" />
+  <xs:simpleType name="AppointmentWindowType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AFTERNOON" />
+      <xs:enumeration value="LATE_AFTERNOON" />
+      <xs:enumeration value="MID_DAY" />
+      <xs:enumeration value="MORNING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppointmentWindowType" nillable="true" type="tns:AppointmentWindowType" />
+  <xs:complexType name="LocalTimeRange">
+    <xs:sequence>
+      <xs:element name="beginsField" nillable="true" type="xs:string" />
+      <xs:element name="endsField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalTimeRange" nillable="true" type="tns:LocalTimeRange" />
+  <xs:complexType name="SpecialInstructionStatusDetail">
+    <xs:sequence>
+      <xs:element name="statusCreateTimeField" type="xs:dateTime" />
+      <xs:element name="statusCreateTimeFieldSpecified" type="xs:boolean" />
+      <xs:element name="statusField" type="tns:SpecialInstructionsStatusCode" />
+      <xs:element name="statusFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpecialInstructionStatusDetail" nillable="true" type="tns:SpecialInstructionStatusDetail" />
+  <xs:simpleType name="SpecialInstructionsStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCEPTED" />
+      <xs:enumeration value="CANCELLED" />
+      <xs:enumeration value="DENIED" />
+      <xs:enumeration value="HELD" />
+      <xs:enumeration value="MODIFIED" />
+      <xs:enumeration value="RELINQUISHED" />
+      <xs:enumeration value="REQUESTED" />
+      <xs:enumeration value="SET" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SpecialInstructionsStatusCode" nillable="true" type="tns:SpecialInstructionsStatusCode" />
+  <xs:complexType name="ArrayOfTrackSplitShipmentPart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackSplitShipmentPart" nillable="true" type="tns:TrackSplitShipmentPart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackSplitShipmentPart" nillable="true" type="tns:ArrayOfTrackSplitShipmentPart" />
+  <xs:complexType name="TrackSplitShipmentPart">
+    <xs:sequence>
+      <xs:element name="pieceCountField" nillable="true" type="xs:string" />
+      <xs:element name="statusCodeField" nillable="true" type="xs:string" />
+      <xs:element name="statusDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="timestampField" type="xs:dateTime" />
+      <xs:element name="timestampFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackSplitShipmentPart" nillable="true" type="tns:TrackSplitShipmentPart" />
+  <xs:complexType name="TrackStatusDetail">
+    <xs:sequence>
+      <xs:element name="ancillaryDetailsField" nillable="true" type="tns:ArrayOfTrackStatusAncillaryDetail" />
+      <xs:element name="codeField" nillable="true" type="xs:string" />
+      <xs:element name="creationTimeField" type="xs:dateTime" />
+      <xs:element name="creationTimeFieldSpecified" type="xs:boolean" />
+      <xs:element name="descriptionField" nillable="true" type="xs:string" />
+      <xs:element name="locationField" nillable="true" type="tns:Address" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackStatusDetail" nillable="true" type="tns:TrackStatusDetail" />
+  <xs:complexType name="ArrayOfTrackStatusAncillaryDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackStatusAncillaryDetail" nillable="true" type="tns:TrackStatusAncillaryDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackStatusAncillaryDetail" nillable="true" type="tns:ArrayOfTrackStatusAncillaryDetail" />
+  <xs:complexType name="TrackStatusAncillaryDetail">
+    <xs:sequence>
+      <xs:element name="actionDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="actionField" nillable="true" type="xs:string" />
+      <xs:element name="reasonDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="reasonField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackStatusAncillaryDetail" nillable="true" type="tns:TrackStatusAncillaryDetail" />
+</xs:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="deb5084d-761e-41d9-b83b-4198b7cd1555" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49490/DocuSignService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DocuSignService.xsd" MetadataType="Schema" ID="a8b12cb3-bd59-4b32-b50e-9ac096f0cac5" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DocuSignService.wsdl" MetadataType="Wsdl" ID="3966640f-2a17-4b1e-968f-9cf169479608" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?wsdl" />
+    <MetadataFile FileName="DocuSignService1.xsd" MetadataType="Schema" ID="b800cb16-4ea9-4e88-8b4b-7344b3dc85df" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?xsd=xsd5" />
+    <MetadataFile FileName="DocuSignService2.xsd" MetadataType="Schema" ID="a3c3c575-8fb0-4bcf-82ee-c3ea9f801804" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DocuSignService.disco" MetadataType="Disco" ID="522e2d27-e1ed-4925-ab4a-9f53b999b2ca" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?disco" />
+    <MetadataFile FileName="DocuSignService3.xsd" MetadataType="Schema" ID="af521485-f88d-476a-8cf8-a9e26e8f3b87" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DocuSignService4.xsd" MetadataType="Schema" ID="2b8d939d-24af-4707-8057-c06256d89f36" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?xsd=xsd6" />
+    <MetadataFile FileName="DocuSignService5.xsd" MetadataType="Schema" ID="7c045dd7-1d83-4eaf-8edd-2d1c89da3f73" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DocuSignService6.xsd" MetadataType="Schema" ID="b7568de8-1ba7-492c-bcda-ef4f6a58b55a" SourceId="1" SourceUrl="http://localhost:49490/DocuSignService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

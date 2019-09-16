@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="File">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlternateLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AppDataContents" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanComment" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanReadRevisions" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Copyable" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedDateRaw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultOpenWithLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DownloadUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Editable" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmbedLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExplicitlyTrashed" nillable="true" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExportLinks" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="FileExtension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="FolderColorRgb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullFileExtension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HeadRevisionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IconLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageMediaMetadata" nillable="true" type="tns:File.ImageMediaMetadataData" />
+      <xs:element minOccurs="0" name="IndexableText" nillable="true" type="tns:File.IndexableTextData" />
+      <xs:element minOccurs="0" name="IsAppAuthorized" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Kind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Labels" nillable="true" type="tns:File.LabelsData" />
+      <xs:element minOccurs="0" name="LastModifyingUser" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="LastModifyingUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastViewedByMeDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastViewedByMeDateRaw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MarkedViewedByMeDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MarkedViewedByMeDateRaw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Md5Checksum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedByMeDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedByMeDateRaw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedDateRaw" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OpenWithLinks" nillable="true" type="q2:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="OriginalFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnedByMe" nillable="true" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OwnerNames" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Owners" nillable="true" type="tns:ArrayOfUser" />
+      <xs:element minOccurs="0" name="Parents" nillable="true" type="tns:ArrayOfParentReference" />
+      <xs:element minOccurs="0" name="Permissions" nillable="true" type="tns:ArrayOfPermission" />
+      <xs:element minOccurs="0" name="Properties" nillable="true" type="tns:ArrayOfProperty" />
+      <xs:element minOccurs="0" name="QuotaBytesUsed" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="SelfLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shareable" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Shared" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SharedWithMeDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SharedWithMeDateRaw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SharingUser" nillable="true" type="tns:User" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Spaces" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Thumbnail" nillable="true" type="tns:File.ThumbnailData" />
+      <xs:element minOccurs="0" name="ThumbnailLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPermission" nillable="true" type="tns:Permission" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoMediaMetadata" nillable="true" type="tns:File.VideoMediaMetadataData" />
+      <xs:element minOccurs="0" name="WebContentLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebViewLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WritersCanShare" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File" nillable="true" type="tns:File" />
+  <xs:complexType name="File.ImageMediaMetadataData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aperture" nillable="true" type="xs:float" />
+      <xs:element minOccurs="0" name="CameraMake" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CameraModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColorSpace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExposureBias" nillable="true" type="xs:float" />
+      <xs:element minOccurs="0" name="ExposureMode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExposureTime" nillable="true" type="xs:float" />
+      <xs:element minOccurs="0" name="FlashUsed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FocalLength" nillable="true" type="xs:float" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsoSpeed" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Lens" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:File.ImageMediaMetadataData.LocationData" />
+      <xs:element minOccurs="0" name="MaxApertureValue" nillable="true" type="xs:float" />
+      <xs:element minOccurs="0" name="MeteringMode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rotation" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Sensor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubjectDistance" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WhiteBalance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Width" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File.ImageMediaMetadataData" nillable="true" type="tns:File.ImageMediaMetadataData" />
+  <xs:complexType name="File.ImageMediaMetadataData.LocationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Altitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File.ImageMediaMetadataData.LocationData" nillable="true" type="tns:File.ImageMediaMetadataData.LocationData" />
+  <xs:complexType name="File.IndexableTextData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File.IndexableTextData" nillable="true" type="tns:File.IndexableTextData" />
+  <xs:complexType name="File.LabelsData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hidden" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Restricted" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Starred" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Trashed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Viewed" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File.LabelsData" nillable="true" type="tns:File.LabelsData" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAuthenticatedUser" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Kind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Picture" nillable="true" type="tns:User.PictureData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="User.PictureData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User.PictureData" nillable="true" type="tns:User.PictureData" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="ArrayOfParentReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParentReference" nillable="true" type="tns:ParentReference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParentReference" nillable="true" type="tns:ArrayOfParentReference" />
+  <xs:complexType name="ParentReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRoot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Kind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelfLink" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParentReference" nillable="true" type="tns:ParentReference" />
+  <xs:complexType name="ArrayOfPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Permission" nillable="true" type="tns:Permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermission" nillable="true" type="tns:ArrayOfPermission" />
+  <xs:complexType name="Permission">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalRoles" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="AuthKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhotoLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelfLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WithLink" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Permission" nillable="true" type="tns:Permission" />
+  <xs:complexType name="ArrayOfProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Property" nillable="true" type="tns:Property" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProperty" nillable="true" type="tns:ArrayOfProperty" />
+  <xs:complexType name="Property">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelfLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Visibility" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Property" nillable="true" type="tns:Property" />
+  <xs:complexType name="File.ThumbnailData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File.ThumbnailData" nillable="true" type="tns:File.ThumbnailData" />
+  <xs:complexType name="File.VideoMediaMetadataData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DurationMillis" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Width" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="File.VideoMediaMetadataData" nillable="true" type="tns:File.VideoMediaMetadataData" />
+  <xs:complexType name="FileList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfFile" />
+      <xs:element minOccurs="0" name="Kind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextPageToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelfLink" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileList" nillable="true" type="tns:FileList" />
+  <xs:complexType name="ArrayOfFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="File" nillable="true" type="tns:File" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFile" nillable="true" type="tns:ArrayOfFile" />
+</xs:schema>

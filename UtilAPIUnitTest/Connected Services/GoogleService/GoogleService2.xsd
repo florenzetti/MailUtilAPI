@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="Thread">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HistoryId" nillable="true" type="xs:unsignedLong" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessage" />
+      <xs:element minOccurs="0" name="Snippet" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Thread" nillable="true" type="tns:Thread" />
+  <xs:complexType name="ArrayOfMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessage" nillable="true" type="tns:ArrayOfMessage" />
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HistoryId" nillable="true" type="xs:unsignedLong" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternalDate" nillable="true" type="xs:long" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LabelIds" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Payload" nillable="true" type="tns:MessagePart" />
+      <xs:element minOccurs="0" name="Raw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SizeEstimate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Snippet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThreadId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="MessagePart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Body" nillable="true" type="tns:MessagePartBody" />
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Headers" nillable="true" type="tns:ArrayOfMessagePartHeader" />
+      <xs:element minOccurs="0" name="MimeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parts" nillable="true" type="tns:ArrayOfMessagePart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessagePart" nillable="true" type="tns:MessagePart" />
+  <xs:complexType name="MessagePartBody">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttachmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Size" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessagePartBody" nillable="true" type="tns:MessagePartBody" />
+  <xs:complexType name="ArrayOfMessagePartHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessagePartHeader" nillable="true" type="tns:MessagePartHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessagePartHeader" nillable="true" type="tns:ArrayOfMessagePartHeader" />
+  <xs:complexType name="MessagePartHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessagePartHeader" nillable="true" type="tns:MessagePartHeader" />
+  <xs:complexType name="ArrayOfMessagePart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessagePart" nillable="true" type="tns:MessagePart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessagePart" nillable="true" type="tns:ArrayOfMessagePart" />
+  <xs:complexType name="ListThreadsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ETag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextPageToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultSizeEstimate" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Threads" nillable="true" type="tns:ArrayOfThread" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListThreadsResponse" nillable="true" type="tns:ListThreadsResponse" />
+  <xs:complexType name="ArrayOfThread">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Thread" nillable="true" type="tns:Thread" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfThread" nillable="true" type="tns:ArrayOfThread" />
+</xs:schema>

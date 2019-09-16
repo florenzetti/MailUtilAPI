@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GoogleService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UtilAPIService" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Google.Apis.Drive.v2.Data" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1.Data" />
+      <xsd:import schemaLocation="http://localhost:49490/GoogleService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Google.Apis.Gmail.v1" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGoogleService_GetGoogleScope_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGoogleScope" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetGoogleScope_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGoogleScopeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_DownloadFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadFile" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_DownloadFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_UploadFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFile" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_UploadFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_UploadFilePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFilePath" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_UploadFilePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadFilePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_DeleteFilePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFilePath" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_DeleteFilePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFilePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetFileList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileList" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetFileList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_SetFileOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetFileOwner" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_SetFileOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetFileOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetThread_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetThread" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetThread_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetThreadList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetThreadList" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetThreadList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetThreadListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetMessageAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_GetMessageAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_ForwardMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:ForwardMessage" />
+  </wsdl:message>
+  <wsdl:message name="IGoogleService_ForwardMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForwardMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGoogleService">
+    <wsdl:operation name="GetGoogleScope">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/GetGoogleScope" message="tns:IGoogleService_GetGoogleScope_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/GetGoogleScopeResponse" message="tns:IGoogleService_GetGoogleScope_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/DownloadFile" message="tns:IGoogleService_DownloadFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/DownloadFileResponse" message="tns:IGoogleService_DownloadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/UploadFile" message="tns:IGoogleService_UploadFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/UploadFileResponse" message="tns:IGoogleService_UploadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilePath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/UploadFilePath" message="tns:IGoogleService_UploadFilePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/UploadFilePathResponse" message="tns:IGoogleService_UploadFilePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/DeleteFile" message="tns:IGoogleService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/DeleteFileResponse" message="tns:IGoogleService_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilePath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/DeleteFilePath" message="tns:IGoogleService_DeleteFilePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/DeleteFilePathResponse" message="tns:IGoogleService_DeleteFilePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/GetFileList" message="tns:IGoogleService_GetFileList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/GetFileListResponse" message="tns:IGoogleService_GetFileList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileOwner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/SetFileOwner" message="tns:IGoogleService_SetFileOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/SetFileOwnerResponse" message="tns:IGoogleService_SetFileOwner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThread">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/GetThread" message="tns:IGoogleService_GetThread_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/GetThreadResponse" message="tns:IGoogleService_GetThread_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThreadList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/GetThreadList" message="tns:IGoogleService_GetThreadList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/GetThreadListResponse" message="tns:IGoogleService_GetThreadList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/GetMessage" message="tns:IGoogleService_GetMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/GetMessageResponse" message="tns:IGoogleService_GetMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageAttachment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/GetMessageAttachment" message="tns:IGoogleService_GetMessageAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/GetMessageAttachmentResponse" message="tns:IGoogleService_GetMessageAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/SendMessage" message="tns:IGoogleService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/SendMessageResponse" message="tns:IGoogleService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForwardMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGoogleService/ForwardMessage" message="tns:IGoogleService_ForwardMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGoogleService/ForwardMessageResponse" message="tns:IGoogleService_ForwardMessage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGoogleService" type="tns:IGoogleService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGoogleScope">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/GetGoogleScope" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/DownloadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/UploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilePath">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/UploadFilePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilePath">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/DeleteFilePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/GetFileList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileOwner">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/SetFileOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThread">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/GetThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThreadList">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/GetThreadList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageAttachment">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/GetMessageAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForwardMessage">
+      <soap:operation soapAction="http://tempuri.org/IGoogleService/ForwardMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GoogleService">
+    <wsdl:port name="BasicHttpBinding_IGoogleService" binding="tns:BasicHttpBinding_IGoogleService">
+      <soap:address location="http://localhost:49490/GoogleService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
